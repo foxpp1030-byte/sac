@@ -331,12 +331,15 @@ body {
     font-weight: 300;
 }
 
+/* 4. 배너 버튼 여백 줄이고 길이 조절 */
 .btn_booking {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    padding: 12px 24px;
+    gap: 15px;
+    /* 화살표 앞 여백 줄임 */
+    padding: 10px 20px;
+    /* 패딩 축소 */
     background: rgba(255, 255, 255, 0.9);
     color: #59168b;
     text-decoration: none;
@@ -344,7 +347,8 @@ body {
     transition: all 0.3s ease;
     border-radius: 2px;
     width: auto;
-    min-width: 160px;
+    min-width: 140px;
+    /* 최소 너비 줄임 */
 }
 
 .btn_booking:hover {
@@ -560,22 +564,27 @@ body {
     /* 기존 내용 숨김 */
 }
 
-/* 오버레이 내용 스타일 */
+/* 5. 예정 버튼 글씨, 버튼 크기 키우기 */
 .badge_status {
     background: #a8001b;
     color: #fff;
-    padding: 4px 10px;
+    padding: 6px 14px;
+    /* 패딩 키움 */
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 18px;
+    /* 글씨 키움 */
     display: inline-block;
+    align-self: flex-start;
     margin-bottom: 15px;
 }
 
+/* 6. 대제목과 소제목 사이 거리 줄이기 */
 .overlay_title {
     color: #fff;
     font-size: 36px;
     font-weight: 500;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
+    /* 마진 줄임 */
     line-height: 1.3;
 }
 
@@ -586,11 +595,13 @@ body {
     line-height: 1.5;
 }
 
+/* 7. 공연시간 라인 여백 조정 */
 .divider_transparent {
     width: 100%;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    /* 구분선 아래 여백 줄임 */
 }
 
 .info_list {
@@ -930,10 +941,12 @@ body {
     margin-bottom: 40px;
 }
 
+/* 8. 인조이 싹 아이콘 간격 줄이기 */
 .side_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    /* 간격 제거 (패딩으로 조절) */
     /* from design code */
 }
 
@@ -943,17 +956,24 @@ body {
     align-items: center;
     justify-content: center;
     width: 140px;
-    height: 170px;
-    padding: 0 30px;
+    height: 150px;
+    /* 높이 약간 줄임 */
+    padding: 0 10px;
+    /* 좌우 패딩 줄임 */
     color: #bbb;
     text-decoration: none;
-    gap: 15px;
+    gap: 10px;
+    /* 아이콘과 텍스트 사이 간격 줄임 */
     transition: all 0.3s ease;
+    font-size: 18px;
+    /* 글자 크기 키움 */
+    font-weight: 500;
 }
 
 .side_item img {
     transition: all 0.3s ease;
     opacity: 0.7;
+    /* width: 60px; 아이콘 크기 조절 필요시 */
 }
 
 /* Experience 아이콘 호버 시 밝아짐 */
@@ -1060,6 +1080,20 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* 9. 비너스 버튼 가운데 점 (디자인과 유사하게) */
+.marker_ring::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    /* 부모 색상 따름 */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* 펄스 효과용 가상 요소 (우웅우웅) */
 .marker_ring::before {
     content: '';
@@ -1079,6 +1113,8 @@ body {
 .marker_ring.blue {
     border: 2px solid #3b82f6;
     background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    /* 점 색상 */
 }
 
 .marker_ring.blue::before {
@@ -1088,6 +1124,7 @@ body {
 .marker_ring.purple {
     border: 2px solid #8b5cf6;
     background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
 }
 
 .marker_ring.purple::before {
@@ -1097,6 +1134,7 @@ body {
 .marker_ring.pink {
     border: 2px solid #ec4899;
     background: rgba(236, 72, 153, 0.1);
+    color: #ec4899;
 }
 
 .marker_ring.pink::before {
@@ -1106,6 +1144,7 @@ body {
 .marker_ring.orange {
     border: 2px solid #f59e0b;
     background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
 }
 
 .marker_ring.orange::before {
@@ -1245,9 +1284,11 @@ body {
     width: 800px;
     background: rgba(29, 41, 61, 0.9);
     border-radius: 16px;
-    padding: 40px;
-    /* 패딩 40px로 통일 */
+    padding: 40px 60px;
+    /* 2. 이너 여백 조정 (좌우 늘림) */
     box-sizing: border-box;
+    /* 3. 높이 줄어들지 않게 최소 높이 설정 */
+    min-height: 400px;
 }
 
 .board_header {
