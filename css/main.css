@@ -208,7 +208,9 @@
     font-size: 24px;
     font-weight: 400;
 }
+
 .post_title,
-.post_date_location{
-  margin: 0; /* 기본 여백 제거 */
+.post_date_location {
+    margin: 0;
+    /* 기본 여백 제거 */
 }

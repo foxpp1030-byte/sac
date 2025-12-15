@@ -31,4 +31,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const header = document.querySelector('.header');
+    let lastY = window.scrollY;
+    const delta = 5; // 민감도(너무 깜빡이면 10으로 올려)
+
+    window.addEventListener('scroll', () => {
+        if (!header) return;
+
+        // 전체 메뉴 열려있을 땐 헤더 숨김/보임 제어 안 함(선택)
+        if (allMenuWrap && allMenuWrap.classList.contains('is_active')) return;
+
+        const y = window.scrollY;
+
+        // 맨 위에서는 항상 보이기
+        if (y <= 0) {
+            header.classList.remove('is_hidden');
+            lastY = y;
+            return;
+        }
+
+        // 아래로 스크롤하면 숨김
+        if (y > lastY + delta) header.classList.add('is_hidden');
+
+        // 위로 스크롤하면 보임
+        if (y < lastY - delta) header.classList.remove('is_hidden');
+
+        lastY = y;
+    });
 });

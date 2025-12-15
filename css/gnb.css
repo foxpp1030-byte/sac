@@ -221,10 +221,25 @@
 }
 
 .header {
+    position: fixed;
+    /* 기존 relative 덮기 */
+    top: 0;
+    left: 0;
     width: 100%;
-    position: relative;
+    z-index: 150;
+    /* 전체메뉴(200)보다 낮게 */
+    transform: translateY(0);
+    transition: transform 0.25s ease;
 }
 
+.header.is_hidden {
+    transform: translateY(-100%);
+}
+
+/* 헤더 높이만큼 본문 밀기 (gnb 높이 60px) */
+body {
+    padding-top: 60px;
+}
 
 /* --- 햄버거 전체 메뉴 스타일 추가 시작 --- */
 
@@ -244,7 +259,7 @@
 
 /* 전체 메뉴 내부 컨테이너 (실제 메뉴 박스) */
 .all_menu_inner {
-   position: absolute;
+    position: absolute;
     top: 0;
     right: -400px;
     width: 500px;
