@@ -1,6 +1,15 @@
 /* =========================================
    기존 스타일 유지 (Today 섹션 등)
    ========================================= */
+/* body 여백 제거 (전체 너비 꽉 차게) */
+body {
+    margin: 0;
+    padding: 0;
+    /* GNB 높이(60px)만큼만 padding-top 유지 */
+    padding-top: 60px;
+    overflow-x: hidden;
+    /* 가로 스크롤 방지 */
+}
 
 .section_today,
 .section_today * {
@@ -27,6 +36,8 @@
     width: 1700px;
     max-width: 90%;
     position: relative;
+    margin: 0 auto;
+    /* 중앙 정렬 보장 */
 }
 
 .today_title_wrap {
@@ -89,6 +100,8 @@
 .post_container {
     width: 1700px;
     max-width: 90%;
+    margin: 0 auto;
+    /* 중앙 정렬 보장 */
     display: grid;
     grid-template-columns: 1.25fr 1fr 1fr;
     grid-template-rows: 347px 471px;
@@ -244,125 +257,218 @@
 
 /* --- Section 1: Main Visual --- */
 .section_main_visual {
-    width: 100%;
+    width: 100vw;
     height: 800px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.section_main_visual::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
+    position: relative;
+    /* 화면 전체 너비 강제 */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .visual_container {
     display: flex;
-    width: fit-content;
+    width: 400%;
+    /* 슬라이드 4개 */
     height: 100%;
+    transition: transform 0.8s ease-in-out;
 }
 
 .visual_item {
     width: 100vw;
-    /* 1920px fallback */
     height: 100%;
     background-size: cover;
     background-position: center;
     position: relative;
-    scroll-snap-align: start;
     flex-shrink: 0;
+}
+
+/* 중앙 정렬용 래퍼 */
+.visual_center_wrap {
+    width: 1700px;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
 }
 
 .visual_content {
     position: absolute;
-    left: 200px;
-    /* 원본의 left: 90px~200px 등 편차 조정 */
     top: 50%;
     transform: translateY(-50%);
-    width: 600px;
+    left: 20px;
+    width: 700px;
     max-width: 90%;
 }
 
 .visual_text_group {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .visual_date {
     display: block;
     font-size: 20px;
     color: #e9d4ff;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
 }
 
 .visual_title {
-    font-size: 70px;
-    font-weight: 400;
-    margin: 0 0 10px 0;
-    line-height: 1.2;
+    font-size: 72px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
 }
 
 .visual_desc {
     font-size: 24px;
     color: #f3e8ff;
     margin: 0;
+    font-weight: 300;
 }
 
 .btn_booking {
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    padding: 14px 30px;
-    background: rgba(255, 255, 255, 0.8);
+    justify-content: space-between;
+    gap: 30px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
     color: #59168b;
-    font-size: 16px;
     text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    width: auto;
+    min-width: 160px;
 }
 
 .btn_booking:hover {
-    background: #fff;
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn_booking span {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.icon_arrow {
+    width: 20px;
+    height: 20px;
 }
 
 
-/* --- Section 3: Upcoming --- */
+/* --- Section 3: Upcoming (Updated) --- */
 .section_upcoming {
     background: #000000;
     padding: 120px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* 좌우 넘침 숨김 */
 }
 
-.section_header_center {
-    text-align: center;
+/* 1700px 내부 래퍼 추가 */
+.upcoming_inner_wrap {
+    width: 1700px;
+    max-width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+/* 헤더: 왼쪽 정렬 + 컨트롤 */
+.upcoming_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 60px;
 }
 
-.upcoming_container {
+.header_text_group {
     display: flex;
-    gap: 40px;
-    width: 100%;
-    overflow-x: auto;
-    padding: 0 40px;
-    justify-content: flex-start;
-    /* items could be wider than screen */
+    flex-direction: column;
+    align-items: flex-start;
+    /* 왼쪽 정렬 */
 }
 
-/* Card Common */
+.header_controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.control_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon_arrow_left {
+    width: 60px;
+    height: 60px;
+    transform: rotate(180deg);
+    filter: invert(1);
+    /* svg가 검정이면 흰색으로 반전 */
+}
+
+.icon_arrow_right {
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+}
+
+.control_divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 슬라이더 윈도우 */
+.upcoming_window {
+    width: 100%;
+    overflow: hidden;
+    /* 넘치는 카드 숨김 */
+}
+
+.upcoming_track {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.5s ease-in-out;
+    width: fit-content;
+    /* 내용물만큼 너비 */
+}
+
+/* 카드 스타일 */
 .upcoming_card {
+    position: relative;
     flex-shrink: 0;
     width: 495px;
     height: 744px;
+    overflow: hidden;
+    /* 배경은 개별 설정 or 기본 */
     background: rgba(42, 42, 42, 0.8);
+}
+
+/* 기본 상태 (Default) */
+.card_default {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    /* 부드러운 전환 */
 }
 
 .card_img_wrap {
@@ -383,6 +489,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: rgba(42, 42, 42, 0.8);
+    /* 기본 배경 */
 }
 
 .card_category {
@@ -397,6 +505,7 @@
     font-size: 40px;
     font-weight: 400;
     margin: 0 0 10px 0;
+    line-height: 1.2;
 }
 
 .card_date {
@@ -411,30 +520,38 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Detail Card Specifics */
-.card_detail {
-    position: relative;
-    background: #2a2a2a;
-}
-
-.card_detail .card_img_wrap {
-    border-radius: 0;
-}
-
-.card_detail .card_img {
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-}
-
-.card_overlay_content {
+/* 호버 오버레이 (Hidden by default) */
+.card_overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     padding: 48px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* 배경을 어둡게 처리하여 기존 내용 덮음 */
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    /* 숨김 */
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
+/* 호버 시 동작 */
+.upcoming_card:hover .card_overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.upcoming_card:hover .card_default .card_content {
+    opacity: 0;
+    /* 기존 텍스트 내용 숨김 */
+}
+
+/* 오버레이 내용 스타일 */
 .badge_status {
     background: #a8001b;
     color: #fff;
@@ -442,6 +559,7 @@
     border-radius: 4px;
     font-size: 14px;
     display: inline-block;
+    align-self: flex-start;
     margin-bottom: 10px;
 }
 
@@ -479,57 +597,6 @@
 .info_list .value {
     color: #fff;
     font-size: 18px;
-}
-
-
-/* Poster Style Cards */
-.card_poster_style {
-    position: relative;
-    justify-content: flex-end;
-}
-
-.poster_bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-.poster_content {
-    position: relative;
-    z-index: 2;
-    padding: 48px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-}
-
-.poster_category {
-    display: block;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 20px;
-    letter-spacing: 3.6px;
-    margin-bottom: 10px;
-}
-
-.poster_title {
-    color: #fff;
-    font-size: 40px;
-    margin: 0 0 10px 0;
-}
-
-.poster_date {
-    display: block;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.poster_line {
-    width: 48px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.3);
 }
 
 
@@ -636,6 +703,8 @@
 .experience_container {
     width: 1700px;
     max-width: 90%;
+    margin: 0 auto;
+    /* 중앙 정렬 */
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -794,7 +863,8 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    /* Aspect ratio fallback if needed */
+    margin: 0 auto;
+    /* 중앙 정렬 */
 }
 
 .btn_venue_marker {
@@ -890,6 +960,8 @@
     z-index: 2;
     width: 1700px;
     max-width: 90%;
+    margin: 0 auto;
+    /* 중앙 정렬 */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -980,6 +1052,8 @@
 .partners_inner {
     width: 1700px;
     max-width: 90%;
+    margin: 0 auto;
+    /* 중앙 정렬 */
     border-radius: 12px;
     border: 1px solid transparent;
     /* from design */
@@ -1021,6 +1095,8 @@
 .footer_inner {
     width: 1600px;
     max-width: 90%;
+    margin: 0 auto;
+    /* 중앙 정렬 */
 }
 
 .footer_top {

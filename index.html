@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>예술의전당</title>
-    <!-- 기존 CSS 유지 -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/gnb.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Script -->
     <script src="./js/main.js"></script>
     <script src="./js/gnb.js"></script>
 </head>
 
 <body>
-    <!-- gnb (기존 유지) -->
+    <!-- gnb -->
     <div class="all_menu_wrap">
         <div class="all_menu_inner">
             <div class="all_menu_header">
@@ -69,6 +70,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- Header -->
     <header class="header">
         <nav class="gnb">
             <div class="gnb_inner">
@@ -100,7 +103,7 @@
                     <li class="gnb_item">
                         <a href="#" class="gnb_link">방문/이용</a>
                         <ul class="sub_list">
-                            <li><a href="#">사업·공지</a></li>
+                            <li><a href="#">공지사항</a></li>
                             <li><a href="#">이용안내</a></li>
                             <li><a href="#">고객소리</a></li>
                         </ul>
@@ -135,57 +138,80 @@
     </header>
 
     <main>
-        <!-- Section 1: Main Visual (New) -->
+        <!-- Section 1: Main Visual -->
         <section class="section_main_visual">
             <div class="visual_container">
                 <!-- Slide 1 -->
                 <article class="visual_item" style="background-image: url('./img/banner1.png');">
-                    <div class="visual_content">
-                        <div class="visual_text_group">
-                            <span class="visual_date">오페라극장 • 2025.08.30 - 08.31</span>
-                            <h2 class="visual_title">한여름 밤의 꿈</h2>
-                            <p class="visual_desc">셰익스피어의 불멸의 작품이 장엄한 오페라로 재탄생합니다</p>
+                    <div class="visual_center_wrap">
+                        <div class="visual_content">
+                            <div class="visual_text_group">
+                                <span class="visual_date">오페라극장 • 2025.08.30 - 08.31</span>
+                                <h2 class="visual_title">한여름 밤의 꿈</h2>
+                                <p class="visual_desc">셰익스피어의 불멸의 작품이 장엄한 오페라로 재탄생합니다</p>
+                            </div>
+                            <a href="#" class="btn_booking">
+                                <span>예매하기</span>
+                                <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
+                            </a>
                         </div>
-                        <a href="#" class="btn_booking">
-                            <span>예매하기</span>
-                            <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
-                        </a>
                     </div>
                 </article>
 
                 <!-- Slide 2 -->
                 <article class="visual_item" style="background-image: url('./img/banner2.png');">
-                    <div class="visual_content">
-                        <div class="visual_text_group">
-                            <span class="visual_date">오페라극장 • 2025.09.04 - 09.20</span>
-                            <h2 class="visual_title">라 보엠</h2>
-                            <p class="visual_desc">드보르작의 서정적인 걸작 오페라</p>
+                    <div class="visual_center_wrap">
+                        <div class="visual_content">
+                            <div class="visual_text_group">
+                                <span class="visual_date">오페라극장 • 2025.09.04 - 09.20</span>
+                                <h2 class="visual_title">라 보엠</h2>
+                                <p class="visual_desc">드보르작의 서정적인 걸작 오페라</p>
+                            </div>
+                            <a href="#" class="btn_booking">
+                                <span>예매하기</span>
+                                <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
+                            </a>
                         </div>
-                        <a href="#" class="btn_booking">
-                            <span>예매하기</span>
-                            <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
-                        </a>
                     </div>
                 </article>
 
                 <!-- Slide 3 -->
                 <article class="visual_item" style="background-image: url('./img/banner3.png');">
-                    <div class="visual_content">
-                        <div class="visual_text_group">
-                            <span class="visual_date">오페라극장 • 2025.07.19 - 08.11</span>
-                            <h2 class="visual_title">루살카</h2>
-                            <p class="visual_desc">드보르작의 서정적인 걸작</p>
+                    <div class="visual_center_wrap">
+                        <div class="visual_content">
+                            <div class="visual_text_group">
+                                <span class="visual_date">오페라극장 • 2025.07.19 - 08.11</span>
+                                <h2 class="visual_title">루살카</h2>
+                                <p class="visual_desc">드보르작의 서정적인 걸작</p>
+                            </div>
+                            <a href="#" class="btn_booking">
+                                <span>예매하기</span>
+                                <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
+                            </a>
                         </div>
-                        <a href="#" class="btn_booking">
-                            <span>예매하기</span>
-                            <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
-                        </a>
+                    </div>
+                </article>
+
+                <!-- Slide 1 (Clone) -->
+                <article class="visual_item" style="background-image: url('./img/banner1.png');">
+                    <div class="visual_center_wrap">
+                        <div class="visual_content">
+                            <div class="visual_text_group">
+                                <span class="visual_date">오페라극장 • 2025.08.30 - 08.31</span>
+                                <h2 class="visual_title">한여름 밤의 꿈</h2>
+                                <p class="visual_desc">셰익스피어의 불멸의 작품이 장엄한 오페라로 재탄생합니다</p>
+                            </div>
+                            <a href="#" class="btn_booking">
+                                <span>예매하기</span>
+                                <img src="./img/right.svg" alt="화살표" class="icon_arrow" />
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Section 2: Today (Existing maintained) -->
+        <!-- Section 2: Today -->
         <section class="section_today">
             <header class="today_header">
                 <div class="today_title_wrap">
@@ -213,7 +239,6 @@
                 <article class="post_item post_medium_top_a" data-post-id="2">
                     <img class="post_img" src="./img/post02.png" alt="Isabelle de Ganay" />
                     <div class="post_info_wrap">
-                        <!-- Content inferred from original context or kept consistent -->
                         <h3 class="post_title">Isabelle de Ganay</h3>
                         <p class="post_date_location">전시실 | 2025.12.01 ~</p>
                     </div>
@@ -237,109 +262,201 @@
             </div>
         </section>
 
-        <!-- Section 3: Upcoming (New) -->
+        <!-- Section 3: Upcoming (Updated) -->
         <section class="section_upcoming">
-            <header class="section_header_center">
-                <span class="sub_title_eng">COMING SOON</span>
-                <h2 class="main_title_eng">Upcoming <span class="title_thin">Season</span></h2>
-                <div class="title_underline_white"></div>
-            </header>
+            <div class="upcoming_inner_wrap">
+                <!-- Header: Left Aligned with Controls -->
+                <header class="upcoming_header">
+                    <div class="header_text_group">
+                        <span class="sub_title_eng">COMING SOON</span>
+                        <h2 class="main_title_eng">Upcoming <span class="title_thin">Season</span></h2>
+                        <div class="title_underline_white"></div>
+                    </div>
+                    <div class="header_controls">
+                        <button class="control_btn btn_prev" aria-label="Previous Slide">
+                            <img src="./img/right.svg" alt="Previous" class="icon_arrow_left">
+                        </button>
+                        <div class="control_divider"></div>
+                        <button class="control_btn btn_next" aria-label="Next Slide">
+                            <img src="./img/right.svg" alt="Next" class="icon_arrow_right">
+                        </button>
+                    </div>
+                </header>
 
-            <div class="upcoming_container">
-                <!-- Card 1 -->
-                <article class="upcoming_card">
-                    <div class="card_img_wrap">
-                        <img src="img0.png" alt="Autumn Serenade" class="card_img">
-                    </div>
-                    <div class="card_content">
-                        <span class="card_category">CONCERT HALL</span>
-                        <h3 class="card_title">Autumn Serenade</h3>
-                        <span class="card_date">October 10, 2025</span>
-                        <div class="card_line"></div>
-                    </div>
-                </article>
+                <div class="upcoming_window">
+                    <div class="upcoming_track">
+                        <!-- Card 1 -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster1.png" alt="Autumn Serenade" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">CONCERT HALL</span>
+                                    <h3 class="card_title">Autumn Serenade</h3>
+                                    <span class="card_date">October 10, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">Autumn Serenade</h3>
+                                <p class="overlay_desc">가을 밤의 낭만, 클래식 세레나데</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.10.10</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">콘서트홀</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">100분</span></li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <!-- Card 2 -->
-                <article class="upcoming_card">
-                    <div class="card_img_wrap">
-                        <img src="img1.png" alt="The Autumn Sonata" class="card_img">
-                    </div>
-                    <div class="card_content">
-                        <span class="card_category">IBK CHAMBER HALL</span>
-                        <h3 class="card_title">The Autumn Sonata</h3>
-                        <span class="card_date">October 10, 2025</span>
-                        <div class="card_line"></div>
-                    </div>
-                </article>
+                        <!-- Card 2 -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster2.png" alt="The Autumn Sonata" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">IBK CHAMBER HALL</span>
+                                    <h3 class="card_title">The Autumn Sonata</h3>
+                                    <span class="card_date">October 10, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">The Autumn Sonata</h3>
+                                <p class="overlay_desc">깊어가는 가을, 실내악의 정수</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.10.10</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">IBK챔버홀</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">90분</span></li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <!-- Card 3 (Detailed) -->
-                <article class="upcoming_card card_detail">
-                    <div class="card_img_wrap">
-                        <img src="img2.png" alt="키릴 게르스타인 피아노 리사이틀" class="card_img">
-                    </div>
-                    <div class="card_overlay_content">
-                        <span class="badge_status">예정</span>
-                        <h3 class="overlay_title">키릴 게르스타인 피아노 리사이틀</h3>
-                        <p class="overlay_desc">세계적인 피아니스트가 선사하는 감동의 독주회</p>
-                        <div class="divider_transparent"></div>
-                        <ul class="info_list">
-                            <li>
-                                <span class="label">공연기간</span>
-                                <span class="value">2025.12.23</span>
-                            </li>
-                            <li>
-                                <span class="label">공연장소</span>
-                                <span class="value">콘서트홀</span>
-                            </li>
-                            <li>
-                                <span class="label">관람시간</span>
-                                <span class="value">120분</span>
-                            </li>
-                        </ul>
-                    </div>
-                </article>
+                        <!-- Card 3 (Kirill) -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster3.png" alt="키릴 게르스타인 피아노 리사이틀" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">CONCERT HALL</span>
+                                    <h3 class="card_title">키릴 게르스타인 피아노 리사이틀</h3>
+                                    <span class="card_date">December 23, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">키릴 게르스타인 피아노 리사이틀</h3>
+                                <p class="overlay_desc">세계적인 피아니스트가 선사하는 감동의 독주회</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.12.23</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">콘서트홀</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">120분</span></li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <!-- Card 4 -->
-                <article class="upcoming_card card_poster_style">
-                    <div class="poster_bg" style="background-image: url('container7.png');"></div>
-                    <div class="poster_content">
-                        <span class="poster_category">IBK CHAMBER HALL</span>
-                        <h3 class="poster_title">Duo Recital</h3>
-                        <span class="poster_date">Mar 15 - 20, 2025</span>
-                        <div class="poster_line"></div>
-                    </div>
-                </article>
+                        <!-- Card 4 -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster4.png" alt="Duo Recital" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">IBK CHAMBER HALL</span>
+                                    <h3 class="card_title">Duo Recital</h3>
+                                    <span class="card_date">Mar 15 - 20, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">Duo Recital</h3>
+                                <p class="overlay_desc">두 연주자가 만들어내는 환상의 하모니</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.03.15-20</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">IBK챔버홀</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">100분</span></li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <!-- Card 5 -->
-                <article class="upcoming_card card_poster_style">
-                    <div class="poster_bg" style="background-image: url('container13.png');"></div>
-                    <div class="poster_content">
-                        <span class="poster_category">IBK CHAMBER HALL</span>
-                        <h3 class="poster_title">Piano Recital</h3>
-                        <span class="poster_date">Mar 15 - 20, 2025</span>
-                        <div class="poster_line"></div>
-                    </div>
-                </article>
+                        <!-- Card 5 -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster5.png" alt="Piano Recital" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">IBK CHAMBER HALL</span>
+                                    <h3 class="card_title">Piano Recital</h3>
+                                    <span class="card_date">Mar 15 - 20, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">Piano Recital</h3>
+                                <p class="overlay_desc">봄을 알리는 피아노의 선율</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.03.15-20</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">IBK챔버홀</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">90분</span></li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <!-- Card 6 -->
-                <article class="upcoming_card card_poster_style">
-                    <div class="poster_bg" style="background-image: url('container19.png');"></div>
-                    <div class="poster_content">
-                        <span class="poster_category">TOWOL THEATRE</span>
-                        <h3 class="poster_title">Jeon Woochi</h3>
-                        <span class="poster_date">Apr 10 - May 05, 2025</span>
-                        <div class="poster_line"></div>
+                        <!-- Card 6 -->
+                        <article class="upcoming_card">
+                            <div class="card_default">
+                                <div class="card_img_wrap">
+                                    <img src="./img/poster6.png" alt="Jeon Woochi" class="card_img">
+                                </div>
+                                <div class="card_content">
+                                    <span class="card_category">TOWOL THEATRE</span>
+                                    <h3 class="card_title">Jeon Woochi</h3>
+                                    <span class="card_date">Apr 10 - May 05, 2025</span>
+                                    <div class="card_line"></div>
+                                </div>
+                            </div>
+                            <!-- Hover Overlay -->
+                            <div class="card_overlay">
+                                <span class="badge_status">예정</span>
+                                <h3 class="overlay_title">Jeon Woochi</h3>
+                                <p class="overlay_desc">고전 소설 전우치의 화려한 귀환</p>
+                                <div class="divider_transparent"></div>
+                                <ul class="info_list">
+                                    <li><span class="label">공연기간</span><span class="value">2025.04.10-05.05</span></li>
+                                    <li><span class="label">공연장소</span><span class="value">토월극장</span></li>
+                                    <li><span class="label">관람시간</span><span class="value">110분</span></li>
+                                </ul>
+                            </div>
+                        </article>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
-        <!-- Section 4: Story (New) -->
+        <!-- Section 4: Story -->
         <section class="section_story">
             <header class="story_header">
                 <div class="header_left">
                     <div class="story_label">
-                        <img src="icon6.svg" alt="" class="icon_story">
+                        <img src="./img/icon6.svg" alt="" class="icon_story">
                         <span>VIDEO STORIES</span>
                     </div>
                     <h2 class="story_title">Moments</h2>
@@ -347,18 +464,18 @@
                 </div>
                 <div class="header_controls">
                     <!-- Navigation icons -->
-                    <img src="chevron-right3.svg" alt="prev">
-                    <img src="vector1.svg" alt="divider">
-                    <img src="chevron-right4.svg" alt="next">
+                    <img src="./img/chevron-right3.svg" alt="prev">
+                    <img src="./img/vector1.svg" alt="divider">
+                    <img src="./img/chevron-right4.svg" alt="next">
                 </div>
             </header>
 
             <div class="story_container">
                 <!-- Story Item 1 -->
                 <article class="story_item">
-                    <div class="story_thumb" style="background-image: url('img3.png');">
+                    <div class="story_thumb" style="background-image: url('./img/video1.png');">
                         <div class="time_badge">03:24</div>
-                        <button class="btn_play"><img src="play-circle0.svg" alt="Play"></button>
+                        <button class="btn_play"><img src="./img/play-circle.svg" alt="Play"></button>
                     </div>
                     <div class="story_info">
                         <h3 class="story_subject">2025 SAC Pick 가을 공연</h3>
@@ -368,9 +485,9 @@
 
                 <!-- Story Item 2 -->
                 <article class="story_item">
-                    <div class="story_thumb" style="background-image: url('img4.png');">
+                    <div class="story_thumb" style="background-image: url('./img/video2.png');">
                         <div class="time_badge">03:24</div>
-                        <button class="btn_play"><img src="play-circle1.svg" alt="Play"></button>
+                        <button class="btn_play"><img src="./img/play-circle.svg" alt="Play"></button>
                     </div>
                     <div class="story_info">
                         <h3 class="story_subject">2025 SAC Pick 가을 교육</h3>
@@ -380,9 +497,9 @@
 
                 <!-- Story Item 3 -->
                 <article class="story_item">
-                    <div class="story_thumb" style="background-image: url('img5.png');">
+                    <div class="story_thumb" style="background-image: url('./img/video3.png');">
                         <div class="time_badge">03:24</div>
-                        <button class="btn_play"><img src="play-circle2.svg" alt="Play"></button>
+                        <button class="btn_play"><img src="./img/play-circle.svg" alt="Play"></button>
                     </div>
                     <div class="story_info">
                         <h3 class="story_subject">서리풀 청년작가 특별전</h3>
@@ -392,9 +509,9 @@
 
                 <!-- Story Item 4 -->
                 <article class="story_item">
-                    <div class="story_thumb" style="background-image: url('img6.png');">
+                    <div class="story_thumb" style="background-image: url('./img/video4.png');">
                         <div class="time_badge">03:24</div>
-                        <button class="btn_play"><img src="play-circle3.svg" alt="Play"></button>
+                        <button class="btn_play"><img src="./img/play-circle.svg" alt="Play"></button>
                     </div>
                     <div class="story_info">
                         <h3 class="story_subject">2025 예술의 전당 “SAC 오페라 갈라”</h3>
@@ -404,7 +521,7 @@
             </div>
         </section>
 
-        <!-- Section 5: Experience (New) -->
+        <!-- Section 5: Experience -->
         <section class="section_experience">
             <header class="section_header_center">
                 <h2 class="main_title_eng">Experience</h2>
@@ -428,13 +545,13 @@
                                 예술의전당 음악영재아카데미가<br>
                                 52기 신입생을 선발하고자 오디션을 실시합니다.
                             </p>
-                            <a href="#" class="btn_apply">APPLY NOW <img src="icon8.svg" alt="arrow"></a>
+                            <a href="#" class="btn_apply">APPLY NOW <img src="./img/arrowbar.svg" alt="arrow"></a>
                         </div>
                         <div class="exp_visual_group">
-                            <img src="img7.png" alt="main visual" class="img_main">
+                            <img src="./img/audition1.png" alt="main visual" class="img_main">
                             <div class="img_sub_group">
-                                <img src="img8.png" alt="sub" class="img_sub">
-                                <img src="img9.png" alt="sub" class="img_sub">
+                                <img src="./img/audition2.png" alt="sub" class="img_sub">
+                                <img src="./img/audition3.png" alt="sub" class="img_sub">
                             </div>
                         </div>
                     </div>
@@ -445,19 +562,19 @@
                     <h3 class="side_title">Enjoy SAC with</h3>
                     <div class="side_grid">
                         <a href="#" class="side_item">
-                            <img src="icon9.svg" alt="아카데미">
+                            <img src="./img/icon1.svg" alt="아카데미">
                             <span>아카데미</span>
                         </a>
                         <a href="#" class="side_item">
-                            <img src="icon10.svg" alt="패키지공연">
+                            <img src="./img/icon2.svg" alt="패키지공연">
                             <span>패키지공연</span>
                         </a>
                         <a href="#" class="side_item">
-                            <img src="icon11.svg" alt="서예아카이브">
+                            <img src="./img/icon3.svg" alt="서예아카이브">
                             <span>서예아카이브</span>
                         </a>
                         <a href="#" class="side_item">
-                            <img src="icon12.svg" alt="디지털스테이지">
+                            <img src="./img/icon4.svg" alt="디지털스테이지">
                             <span>디지털스테이지</span>
                         </a>
                     </div>
@@ -465,7 +582,7 @@
             </div>
         </section>
 
-        <!-- Section 6: Venues (New) -->
+        <!-- Section 6: Venues -->
         <section class="section_venues">
             <header class="section_header_left">
                 <div class="title_underline_black"></div>
@@ -473,44 +590,44 @@
                 <p class="sub_desc_gray">오늘, 예술의전당에서 펼쳐지는 순간들</p>
             </header>
 
-            <div class="venues_map_container" style="background-image: url('container33.png');">
-                <!-- Interactive Buttons (Absolute positioned as implied by design map) -->
+            <div class="venues_map_container" style="background-image: url('./img/view.png');">
+                <!-- Interactive Buttons -->
                 <button class="btn_venue_marker" style="top: 424px; left: 600px;" aria-label="Venue 1">
                     <div class="marker_ring blue">
-                        <img src="icon13.svg" alt="">
+                        <img src="./img/icon13.svg" alt="">
                     </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 276px; left: 504px;" aria-label="Venue 2">
                     <div class="marker_ring purple">
-                        <img src="icon14.svg" alt="">
+                        <img src="./img/icon14.svg" alt="">
                     </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 643px; left: 1148px;" aria-label="Venue 3">
                     <div class="marker_ring pink">
-                        <img src="icon15.svg" alt="">
+                        <img src="./img/icon15.svg" alt="">
                     </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 372px; left: 1212px;" aria-label="Venue 4">
                     <div class="marker_ring orange">
-                        <img src="icon16.svg" alt="">
+                        <img src="./img/icon16.svg" alt="">
                     </div>
                 </button>
             </div>
         </section>
 
-        <!-- Section 7: News (New) -->
-        <section class="section_news" style="background-image: url('news-section0.png');">
+        <!-- Section 7: News -->
+        <section class="section_news" style="background-image: url('./img/news-section0.png');">
             <div class="news_inner">
                 <div class="news_left">
                     <h2 class="news_title">세계 음악 분수</h2>
                     <div class="news_links">
                         <a href="#" class="news_link_item">
                             <span>음악분수 운영 안내</span>
-                            <img src="icon17.svg" alt="arrow">
+                            <img src="./img/arrow.svg" alt="arrow">
                         </a>
                         <a href="#" class="news_link_item">
                             <span>세계음악분수 선곡표</span>
-                            <img src="icon18.svg" alt="arrow">
+                            <img src="./img/arrow.svg" alt="arrow">
                         </a>
                     </div>
                 </div>
@@ -544,24 +661,22 @@
             </div>
         </section>
 
-        <!-- Section 8: Logos (New) -->
+        <!-- Section 8: Logos -->
         <section class="section_partners">
             <div class="partners_inner">
                 <div class="partners_list">
-                    <img src="image-780.png" alt="Partner">
-                    <img src="image-800.png" alt="Partner">
-                    <img src="image-790.png" alt="Partner">
-                    <img src="image-810.png" alt="Partner">
-                    <img src="image-830.png" alt="Partner">
-                    <img src="image-820.png" alt="Partner">
-                    <img src="image-840.png" alt="Partner">
-                    <img src="image-850.png" alt="Partner">
+                    <img src="./img/logo01.png" alt="Partner">
+                    <img src="./img/logo02.png" alt="Partner">
+                    <img src="./img/logo03.png" alt="Partner">
+                    <img src="./img/logo04.png" alt="Partner">
+                    <img src="./img/logo05.png" alt="Partner">
+                    <img src="./img/logo06.png" alt="Partner">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (New) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer_inner">
             <div class="footer_top">
@@ -576,10 +691,10 @@
                     <li><a href="#">1 : 1 문의</a></li>
                 </ul>
                 <div class="footer_sns">
-                    <a href="#"><img src="icon-jam-icons-outline-logos-youtube0.svg" alt="Youtube"></a>
-                    <a href="#"><img src="icon-jam-icons-outline-logos-facebook0.svg" alt="Facebook"></a>
-                    <a href="#"><img src="icon-jam-icons-outline-logos-twitter0.svg" alt="Twitter"></a>
-                    <a href="#"><img src="icon-jam-icons-outline-logos-instagram0.svg" alt="Instagram"></a>
+                    <a href="#"><img src="./img/youtube.svg" alt="Youtube"></a>
+                    <a href="#"><img src="./img/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="./img/twitter.svg" alt="Twitter"></a>
+                    <a href="#"><img src="./img/instagram.svg" alt="Instagram"></a>
                 </div>
             </div>
 
