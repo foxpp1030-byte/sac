@@ -1,0 +1,260 @@
+/* Figma Styles of your File */
+:root {
+    /* Colors */
+    /* Fonts */
+    --tit80px-font-family: Suit-Medium, sans-serif;
+    --tit80px-font-size: 80px;
+    --tit80px-line-height: 90px;
+    --tit80px-font-weight: 500;
+    --tit80px-font-style: normal;
+    --gnb20px-font-family: Suit-Regular, sans-serif;
+    --gnb20px-font-size: 20px;
+    --gnb20px-line-height: normal;
+    --gnb20px-font-weight: 400;
+    --gnb20px-font-style: normal;
+    --subtit30px-font-family: Suit-Regular, sans-serif;
+    --subtit30px-font-size: 30px;
+    --subtit30px-line-height: 28px;
+    --subtit30px-font-weight: 400;
+    --subtit30px-font-style: normal;
+
+    /* Effects */
+    --1-box-shadow: 6px 6px 71.2px 0px rgba(27, 42, 65, 0.1);
+    --2-box-shadow: 0px 4px 4.7px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Figma Color Variables of your File */
+[data-misshacom-mode="desktop"] {
+    /* desktop */
+    --color-white-solid: #ffffff;
+    --color-black-solid: #000000;
+    --color-red-35: #b10904;
+    --color-grey-44: #707070;
+    --color-grey-48: #7a7a7a;
+    --color-grey-40: #666666;
+    --color-grey-72: #b7b7b7;
+    --color-grey-80: #cccccc;
+    --color-grey-70: #b3b3b3;
+    --color-grey-93: #eeeeee;
+    --color-grey-94: #f0f0f0;
+    --color-grey-56: #8f8f8f;
+}
+
+[data-misshacom-mode="tablet"] {
+    /* tablet */
+    --color-white-solid: #ffffff;
+    --color-black-solid: #000000;
+    --color-red-35: #b10904;
+    --color-grey-44: #707070;
+    --color-grey-48: #7a7a7a;
+    --color-grey-40: #666666;
+    --color-grey-72: #b7b7b7;
+    --color-grey-80: #cccccc;
+    --color-grey-70: #b3b3b3;
+    --color-grey-93: #eeeeee;
+    --color-grey-94: #f0f0f0;
+    --color-grey-56: #8f8f8f;
+}
+
+[data-misshacom-mode="mobile"] {
+    /* mobile */
+    --color-white-solid: #ffffff;
+    --color-black-solid: #000000;
+    --color-red-35: #b10904;
+    --color-grey-44: #707070;
+    --color-grey-48: #7a7a7a;
+    --color-grey-40: #666666;
+    --color-grey-72: #b7b7b7;
+    --color-grey-80: #cccccc;
+    --color-grey-70: #b3b3b3;
+    --color-grey-93: #eeeeee;
+    --color-grey-94: #f0f0f0;
+    --color-grey-56: #8f8f8f;
+}
+
+
+/* Resetting margin/padding and defining box-sizing for all elements */
+.header,
+.gnb,
+.gnb * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    /* Add this to remove default link underline */
+    list-style: none;
+    /* Add this to remove default list style */
+}
+
+/* Base GNB Container */
+.gnb {
+    background: var(--color-white-solid, #ffffff);
+    border-bottom: 1px solid var(--color-grey-93, #eeeeee);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+    z-index: 100;
+}
+
+/* Inner container for max-width and centering */
+.gnb_inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 1700px;
+    max-width: 90%;
+    height: 100%;
+    position: relative;
+}
+
+/* Logo */
+.gnb_logo_link {
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.gnb_logo {
+    height: 30px;
+    width: auto;
+}
+
+
+/* Main Navigation List */
+.gnb_list {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    height: 100%;
+}
+
+/* Main Navigation Item */
+.gnb_item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Main Navigation Link */
+.gnb_link {
+    color: var(--color-black-solid, #000000);
+    text-align: center;
+    font-family: var(--gnb20px-font-family, "Suit-Regular", sans-serif);
+    font-size: var(--gnb20px-font-size, 20px);
+    font-weight: var(--gnb20px-font-weight, 400);
+    display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover effect on GNB link - similar to the image's underline */
+.gnb_item:hover>.gnb_link {
+    color: var(--color-black-solid, #000000);
+    box-shadow: inset 0 -3px 0 0 var(--color-black-solid, #000000);
+    font-weight: 500;
+}
+
+
+/* Dropdown Sub Menu (Initially hidden) */
+.sub_list {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 0;
+    background: var(--color-white-solid, #ffffff);
+    border: 1px solid var(--color-grey-93, #eeeeee);
+    border-top: none;
+    box-shadow: var(--2-box-shadow);
+    min-width: 100%;
+    white-space: nowrap;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(6, auto);
+    gap: 10px 40px;
+    width: 200px;
+ 
+}
+
+
+.gnb_list .gnb_item:last-child .sub_list {
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: row;
+    gap: 10px 0;
+}
+
+/* Sub Menu Item */
+.sub_list li {
+    padding: 2px 10px;
+}
+
+/* Sub Menu Link */
+.sub_list a {
+   color: var(--color-grey-40, #666666);
+  font-family: var(--gnb20px-font-family, "Suit-Regular", sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  display: block;
+  padding: 5px 0;
+}
+
+/* Highlighted sub link (for '전시실 대관료 조회')
+.sub_link_highlight {
+    color: var(--color-red-35, #b10904) !important;
+} */
+
+/* Sub Menu Hover effect */
+.sub_list a:hover {
+    color: var(--color-red-35, #b10904);
+    font-weight: 500;
+}
+
+
+.gnb_item:hover > .sub_list {
+    display: grid;
+}
+/* Icons Section */
+.gnb_icon {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Icon Button Styling */
+.gnb_icon_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+}
+
+/* Icon Image */
+.gnb_icon_img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* Optional: Wrapper for the whole GNB structure to manage overflow if needed */
+.header {
+    width: 100%;
+    position: relative;
+}
