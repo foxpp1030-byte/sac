@@ -13,62 +13,62 @@
 </head>
 
 <body>
-
+    <!-- gnb -->
     <div class="all_menu_wrap">
-    <div class="all_menu_inner">
-        <div class="all_menu_header">
-            <div class="all_menu_util">
-                <a href="#">ENG</a>
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
+        <div class="all_menu_inner">
+            <div class="all_menu_header">
+                <div class="all_menu_util">
+                    <a href="#">ENG</a>
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </div>
+                <button class="all_menu_close_btn" aria-label="전체 메뉴 닫기">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <button class="all_menu_close_btn" aria-label="전체 메뉴 닫기">
-                <i class="fas fa-times"></i>
-            </button>
+
+            <ul class="all_menu_list">
+                <li class="all_menu_item">
+                    <a href="#" class="all_menu_link">공연/전시</a>
+                    <ul class="all_sub_list">
+                        <li><a href="#">현재공연·전시</a></li>
+                        <li><a href="#">티켓예매/좌석</a></li>
+                        <li><a href="#">예매안내</a></li>
+                        <li><a href="#">월간프로그램</a></li>
+                        <li><a href="#">연간프로그램</a></li>
+                        <li><a href="#">좌석배치도</a></li>
+                    </ul>
+                </li>
+                <li class="all_menu_item">
+                    <a href="#" class="all_menu_link">아카데미</a>
+                    <ul class="all_sub_list">
+                        <li><a href="#">아카데미 소개</a></li>
+                        <li><a href="#">아카데미 프로그램</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">오시는길</a></li>
+                    </ul>
+                </li>
+                <li class="all_menu_item">
+                    <a href="#" class="all_menu_link">방문/이용</a>
+                    <ul class="all_sub_list">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">이용안내</a></li>
+                        <li><a href="#">고객소리</a></li>
+                    </ul>
+                </li>
+                <li class="all_menu_item">
+                    <a href="#" class="all_menu_link">대관안내</a>
+                    <ul class="all_sub_list">
+                        <li><a href="#">대관안내</a></li>
+                        <li><a href="#">대관시설</a></li>
+                        <li><a href="#">대관공고</a></li>
+                        <li><a href="#" class="all_sub_link_highlight">전시실 대관료 조회</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        
-        <ul class="all_menu_list">
-            <li class="all_menu_item">
-                <a href="#" class="all_menu_link">공연/전시</a>
-                <ul class="all_sub_list">
-                    <li><a href="#">현재공연·전시</a></li>
-                    <li><a href="#">티켓예매/좌석</a></li>
-                    <li><a href="#">예매안내</a></li>
-                    <li><a href="#">월간프로그램</a></li>
-                    <li><a href="#">연간프로그램</a></li>
-                    <li><a href="#">좌석배치도</a></li>
-                </ul>
-            </li>
-            <li class="all_menu_item">
-                <a href="#" class="all_menu_link">아카데미</a>
-                <ul class="all_sub_list">
-                    <li><a href="#">아카데미 소개</a></li>
-                    <li><a href="#">아카데미 프로그램</a></li>
-                    <li><a href="#">조직도</a></li>
-                    <li><a href="#">오시는길</a></li>
-                </ul>
-            </li>
-            <li class="all_menu_item">
-                <a href="#" class="all_menu_link">방문/이용</a>
-                <ul class="all_sub_list">
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="#">이용안내</a></li>
-                    <li><a href="#">고객소리</a></li>
-                </ul>
-            </li>
-            <li class="all_menu_item">
-                <a href="#" class="all_menu_link">대관안내</a>
-                <ul class="all_sub_list">
-                    <li><a href="#">대관안내</a></li>
-                    <li><a href="#">대관시설</a></li>
-                    <li><a href="#">대관공고</a></li>
-                    <li><a href="#" class="all_sub_link_highlight">전시실 대관료 조회</a></li>
-                </ul>
-            </li>
-        </ul>
     </div>
-</div>
-<header class="header">
+    <header class="header">
         <nav class="gnb">
             <div class="gnb_inner">
                 <a href="#" class="gnb_logo_link">
@@ -133,6 +133,60 @@
         </nav>
     </header>
 
+
+    <!-- main -->
+     <main>
+<section class="section_today">
+    <header class="today_header">
+        <div class="today_title_wrap">
+            <h2 class="today_main_title">
+                <span class="title_line"></span>
+                <span class="title_text">Today</span>
+            </h2>
+            <p class="today_subtitle">오늘, 예술의전당에서 펼쳐지는 순간들</p>
+        </div>
+        
+        <a href="#" class="today_more_link" aria-label="Today 섹션 더보기">
+            <img class="icon_chevron_right" src="./img/right.svg" alt="더보기 아이콘" />
+        </a>
+    </header>
+
+    <div class="post_container">
+        <article class="post_item post_large" data-post-id="1">
+            <img class="post_img" src="./img/post01.png" alt="Salt path" />
+            <div class="post_info_wrap">
+                <h3 class="post_title">Salt path</h3>
+                <p class="post_date_location">오페라극장 | 2025.09.07 3:00</p>
+            </div>
+        </article>
+
+        <article class="post_item post_medium_top_a" data-post-id="2">
+            <img class="post_img" src="./img/post02.png" alt="Salt path" />
+            <div class="post_info_wrap">
+                <h3 class="post_title">Isabelle de Ganay</h3>
+                <p class="post_date_location">전시실 | 2025.12.01 ~ 2026.03.31</p>
+            </div>
+        </article>
+
+        <article class="post_item post_medium_top_b" data-post-id="3">
+            <img class="post_img" src="./img/post03.png" alt="Pink Panther" />
+            <div class="post_info_wrap">
+                <h3 class="post_title">Pink Panther</h3>
+                <p class="post_date_location">디자인 미술관 | 2025.07.01 ~ 2025.10.31</p>
+            </div>
+        </article>
+
+        <article class="post_item post_medium_bottom" data-post-id="4">
+            <img class="post_img" src="./img/post04.png" alt="Quartet TACH" />
+            <div class="post_info_wrap">
+                <h3 class="post_title">Quartet TACH</h3>
+                <p class="post_date_location">콘서트홀 | 2025.11.20 8:00</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+     </main>
 </body>
 
 </html>

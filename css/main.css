@@ -1,0 +1,211 @@
+/* --- 메인 섹션 1: Today 섹션 스타일 --- */
+
+.section_today,
+.section_today * {
+    box-sizing: border-box;
+}
+
+.section_today {
+    background: var(--color-white-solid, #ffffff);
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+/* 제목 영역 전체 */
+.today_header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 1700px;
+    max-width: 90%;
+    position: relative;
+}
+
+/* 텍스트 컨테이너 */
+.today_title_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    flex-grow: 1;
+}
+
+/* H2 메인 타이틀 ('Today') */
+.today_main_title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.title_line {
+    background: var(--color-black-solid, #000000);
+    width: 80px;
+    height: 1px;
+    position: relative;
+    display: block;
+}
+
+.title_text {
+    color: #1c1c1c;
+    font-family: var(--tit80px-font-family, "Suit-Medium", sans-serif);
+    font-size: var(--tit80px-font-size, 80px);
+    line-height: var(--tit80px-line-height, 90px);
+    letter-spacing: -5px;
+    font-weight: var(--tit80px-font-weight, 500);
+}
+
+/* 부제목 */
+.today_subtitle {
+    color: #6a7282;
+    font-family: var(--subtit30px-font-family, "Suit-Regular", sans-serif);
+    font-size: var(--subtit30px-font-size, 30px);
+    line-height: var(--subtit30px-line-height, 28px);
+    letter-spacing: 0.5px;
+    font-weight: var(--subtit30px-font-weight, 400);
+}
+
+/* 더보기 링크 아이콘 */
+.today_more_link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.icon_chevron_right {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1;
+}
+
+/* --- 포스트 컨테이너 및 레이아웃 --- */
+.post_container {
+    width: 1700px;
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-rows: 347px 471px;
+    gap: 10px;
+    height: auto;
+}
+
+.post_item {
+    position: relative;
+    overflow: hidden;
+}
+
+.post_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* 포스트 위치 및 크기 */
+.post_large {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: auto;
+    height: auto;
+    left: auto;
+    top: auto;
+}
+
+.post_medium_top_a {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    height: auto;
+    left: auto;
+    top: auto;
+}
+
+.post_medium_top_b {
+    grid-column: 3;
+    grid-row: 1;
+    width: auto;
+    height: auto;
+    right: auto;
+    top: auto;
+}
+
+.post_medium_bottom {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    width: auto;
+    height: auto;
+    right: auto;
+    bottom: auto;
+}
+
+/* --- 호버 및 오버레이 스타일 --- */
+
+.post_info_wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    color: var(--color-white-solid, #ffffff);
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.post_item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s;
+    z-index: 1;
+}
+
+/* 호버 시 효과 */
+.post_item:hover .post_img {
+    transform: scale(1.1);
+}
+
+.post_item:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.post_item:hover .post_info_wrap {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* 텍스트 스타일 */
+.post_title {
+    color: var(--color-white-solid, #ffffff);
+    font-family: "Suit-Regular", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.post_date_location {
+    color: #fefefe;
+    font-family: "Suit-Regular", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
