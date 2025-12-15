@@ -244,15 +244,17 @@
 
 /* 전체 메뉴 내부 컨테이너 (실제 메뉴 박스) */
 .all_menu_inner {
-    position: absolute;
+   position: absolute;
     top: 0;
     right: -400px;
-    width: 350px;
+    width: 500px;
     height: 100%;
     background: var(--color-white-solid, #ffffff);
-    padding: 30px 30px 50px 30px;
+    padding: 30px;
+    padding-bottom: 60px;
     transition: right 0.3s ease-in-out;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 /* 메뉴 보이기 상태 (.is_active 클래스 추가 시) */
