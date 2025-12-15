@@ -158,7 +158,7 @@
     border-top: none;
     box-shadow: var(--2-box-shadow);
     list-style: none;
-    width: max-content;
+    width: 200px;
     min-width: 100%;
     white-space: nowrap;
 
