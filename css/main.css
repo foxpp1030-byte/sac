@@ -991,13 +991,16 @@ body {
 
 .venues_map_container {
     width: 1700px;
-    height: 1014px;
+    /* 높이를 700px로 줄여서 한 화면에 보이도록 수정 */
+    height: 700px;
     max-width: 90%;
     background-size: cover;
     background-position: center;
     position: relative;
     margin: 0 auto;
     /* 중앙 정렬 */
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .btn_venue_marker {
@@ -1013,16 +1016,32 @@ body {
     align-items: center;
 }
 
-/* 펄스 애니메이션 키프레임 */
-@keyframes pulse-ring {
+/* 펄스 애니메이션 키프레임 (부드럽게 우웅우웅) */
+@keyframes pulse-shadow {
     0% {
-        transform: scale(0.8);
-        opacity: 0.8;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
     }
 
     100% {
-        transform: scale(2.2);
-        opacity: 0;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.1;
     }
 }
 
@@ -1035,24 +1054,31 @@ body {
     justify-content: center;
     position: relative;
     z-index: 2;
+    background: rgba(255, 255, 255, 0.8);
+    /* 기본 배경 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* 펄스 효과용 가상 요소 */
+/* 펄스 효과용 가상 요소 (우웅우웅) */
 .marker_ring::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
     border-radius: 50%;
     z-index: -1;
     /* 기본 상태는 정지 */
+    background: inherit;
+    /* 부모 색상 상속 */
+    opacity: 0.3;
 }
 
 .marker_ring.blue {
-    background: rgba(59, 130, 246, 0.13);
     border: 2px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
 }
 
 .marker_ring.blue::before {
@@ -1060,8 +1086,8 @@ body {
 }
 
 .marker_ring.purple {
-    background: rgba(139, 92, 246, 0.13);
     border: 2px solid #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
 }
 
 .marker_ring.purple::before {
@@ -1069,8 +1095,8 @@ body {
 }
 
 .marker_ring.pink {
-    background: rgba(236, 72, 153, 0.13);
     border: 2px solid #ec4899;
+    background: rgba(236, 72, 153, 0.1);
 }
 
 .marker_ring.pink::before {
@@ -1078,8 +1104,8 @@ body {
 }
 
 .marker_ring.orange {
-    background: rgba(245, 158, 11, 0.13);
     border: 2px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
 }
 
 .marker_ring.orange::before {
@@ -1087,8 +1113,12 @@ body {
 }
 
 /* 호버 시 펄스 애니메이션 적용 */
+.btn_venue_marker:hover .marker_ring {
+    transform: scale(1.1);
+}
+
 .btn_venue_marker:hover .marker_ring::before {
-    animation: pulse-ring 1.5s infinite ease-out;
+    animation: breathe 1.5s infinite ease-in-out;
 }
 
 /* 툴팁 스타일 */
@@ -1197,6 +1227,14 @@ body {
     color: #fff;
     font-size: 24px;
     text-decoration: none;
+    /* 호버 시 포인터 변경 */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.news_link_item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* 살짝 배경 추가 */
 }
 
 .news_link_item:first-child {
@@ -1207,7 +1245,9 @@ body {
     width: 800px;
     background: rgba(29, 41, 61, 0.9);
     border-radius: 16px;
-    padding: 32px;
+    padding: 40px;
+    /* 패딩 40px로 통일 */
+    box-sizing: border-box;
 }
 
 .board_header {
@@ -1232,6 +1272,17 @@ body {
     border-bottom: 2px solid #fe9a00;
 }
 
+/* 탭 내용 리스트 스타일 */
+.board_list {
+    display: none;
+    /* 기본 숨김 */
+}
+
+.board_list.active {
+    display: block;
+    /* 활성화 시 보임 */
+}
+
 .board_item {
     display: flex;
     flex-direction: column;
@@ -1252,30 +1303,51 @@ body {
 }
 
 
-/* --- Section 8: Partners --- */
+/* --- Section 8: Partners (Infinite Scroll) --- */
 .section_partners {
     background: #f4f4f4;
     padding: 60px 0;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    /* 넘치는 부분 숨김 */
 }
 
 .partners_inner {
     width: 1700px;
     max-width: 90%;
     margin: 0 auto;
-    /* 중앙 정렬 */
     border-radius: 12px;
     border: 1px solid transparent;
-    /* from design */
+    overflow: hidden;
+    /* 내부 스크롤 숨김 */
+}
+
+/* 무한 롤링 애니메이션 정의 */
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .partners_list {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    gap: 60px;
+    /* 간격 넓힘 */
+    width: max-content;
+    /* 내용물만큼 늘어남 */
+    animation: infinite-scroll 20s linear infinite;
+    /* 무한 반복 애니메이션 */
+}
+
+/* 마우스 올리면 멈춤 (선택사항) */
+.partners_list:hover {
+    animation-play-state: paused;
 }
 
 .partners_list img {
@@ -1322,11 +1394,17 @@ body {
 .footer_menu {
     display: flex;
     gap: 0;
+    list-style: none;
+    /* 불릿 제거 */
+    margin: 0;
+    padding: 0;
 }
 
 .footer_menu li {
     padding: 0 20px;
     border-right: 1px solid #fefefe;
+    list-style: none;
+    /* 불릿 제거 */
 }
 
 .footer_menu li:last-child {

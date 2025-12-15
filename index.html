@@ -286,6 +286,7 @@
                 <!-- Slider Window -->
                 <div class="upcoming_window">
                     <div class="upcoming_track">
+                        <!-- Items -->
                         <!-- Card 1 -->
                         <article class="upcoming_card">
                             <div class="card_default">
@@ -471,7 +472,7 @@
                         <h2 class="story_title">Moments</h2>
                         <div class="title_underline_black"></div>
                     </div>
-                    <!-- Controls added here -->
+                    <!-- Controls -->
                     <div class="header_controls">
                         <button class="control_btn btn_prev_story" aria-label="Previous Slide">
                             <img src="./img/right.svg" alt="Previous" class="icon_arrow_left_black">
@@ -536,7 +537,6 @@
 
         <!-- Section 5: Experience -->
         <section class="section_experience">
-            <!-- Header class changed for left alignment -->
             <header class="section_header_exp">
                 <h2 class="main_title_eng">Experience</h2>
                 <p class="sub_desc_white">예술의전당이 준비한 특별한 경험과 혜택</p>
@@ -605,7 +605,7 @@
             </header>
 
             <div class="venues_map_container" style="background-image: url('./img/view.png');">
-                <!-- Interactive Buttons with Tooltips -->
+                <!-- Interactive Buttons -->
                 <button class="btn_venue_marker" style="top: 424px; left: 600px;" aria-label="Venue 1">
                     <div class="marker_ring blue">
                         <img src="./img/icon13.svg" alt="">
@@ -664,12 +664,14 @@
 
                 <div class="news_right_board">
                     <div class="board_header">
-                        <button class="tab_btn active">공지사항</button>
-                        <button class="tab_btn">티켓오픈</button>
-                        <button class="tab_btn">이벤트</button>
-                        <button class="tab_btn">채용공고</button>
+                        <button class="tab_btn active" data-tab="notice">공지사항</button>
+                        <button class="tab_btn" data-tab="ticket">티켓오픈</button>
+                        <button class="tab_btn" data-tab="event">이벤트</button>
+                        <button class="tab_btn" data-tab="job">채용공고</button>
                     </div>
-                    <ul class="board_list">
+
+                    <!-- 1. 공지사항 -->
+                    <ul class="board_list active" id="tab-notice">
                         <li class="board_item">
                             <span class="date">2025.09.16</span>
                             <a href="#" class="subject">음악당 2026년 1차 수시대관 공고</a>
@@ -687,6 +689,46 @@
                             <a href="#" class="subject">예술의전당 한가람미술관 리모델링공사 건설사업관리 공사감독자 배치기준(안) 수립 공고</a>
                         </li>
                     </ul>
+
+                    <!-- 2. 티켓오픈 (숨김) -->
+                    <ul class="board_list" id="tab-ticket">
+                        <li class="board_item">
+                            <span class="date">2025.09.20</span>
+                            <a href="#" class="subject">[티켓오픈] 2025 교향악축제 패키지 예매 안내</a>
+                        </li>
+                        <li class="board_item">
+                            <span class="date">2025.09.18</span>
+                            <a href="#" class="subject">[티켓오픈] 11시 콘서트 시즌 3</a>
+                        </li>
+                        <li class="board_item">
+                            <span class="date">2025.09.15</span>
+                            <a href="#" class="subject">[티켓오픈] 토요콘서트 10월 공연</a>
+                        </li>
+                    </ul>
+
+                    <!-- 3. 이벤트 (숨김) -->
+                    <ul class="board_list" id="tab-event">
+                        <li class="board_item">
+                            <span class="date">2025.09.10</span>
+                            <a href="#" class="subject">[이벤트] 가을맞이 전시 관람 인증샷 이벤트</a>
+                        </li>
+                        <li class="board_item">
+                            <span class="date">2025.09.05</span>
+                            <a href="#" class="subject">[이벤트] 뉴스레터 구독자 대상 초대권 증정</a>
+                        </li>
+                    </ul>
+
+                    <!-- 4. 채용공고 (숨김) -->
+                    <ul class="board_list" id="tab-job">
+                        <li class="board_item">
+                            <span class="date">2025.09.01</span>
+                            <a href="#" class="subject">2025년 하반기 무대예술 전문인력 채용 공고</a>
+                        </li>
+                        <li class="board_item">
+                            <span class="date">2025.08.28</span>
+                            <a href="#" class="subject">시설관리팀 기간제 근로자 채용</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -694,13 +736,27 @@
         <!-- Section 8: Logos -->
         <section class="section_partners">
             <div class="partners_inner">
+                <!-- 무한 스크롤을 위해 리스트 내부에 이미지를 두 세트 배치합니다. -->
                 <div class="partners_list">
+                    <!-- Original Set -->
                     <img src="./img/logo01.png" alt="Partner">
                     <img src="./img/logo02.png" alt="Partner">
                     <img src="./img/logo03.png" alt="Partner">
                     <img src="./img/logo04.png" alt="Partner">
                     <img src="./img/logo05.png" alt="Partner">
                     <img src="./img/logo06.png" alt="Partner">
+                    <img src="./img/logo01.png" alt="Partner">
+                    <img src="./img/logo02.png" alt="Partner">
+
+                    <!-- Cloned Set (Seamless Loop) -->
+                    <img src="./img/logo03.png" alt="Partner">
+                    <img src="./img/logo04.png" alt="Partner">
+                    <img src="./img/logo05.png" alt="Partner">
+                    <img src="./img/logo06.png" alt="Partner">
+                    <img src="./img/logo01.png" alt="Partner">
+                    <img src="./img/logo02.png" alt="Partner">
+                    <img src="./img/logo03.png" alt="Partner">
+                    <img src="./img/logo04.png" alt="Partner">
                 </div>
             </div>
         </section>
