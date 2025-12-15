@@ -1,7 +1,4 @@
-/* Figma Styles of your File */
 :root {
-    /* Colors */
-    /* Fonts */
     --tit80px-font-family: Suit-Medium, sans-serif;
     --tit80px-font-size: 80px;
     --tit80px-line-height: 90px;
@@ -18,14 +15,11 @@
     --subtit30px-font-weight: 400;
     --subtit30px-font-style: normal;
 
-    /* Effects */
     --1-box-shadow: 6px 6px 71.2px 0px rgba(27, 42, 65, 0.1);
     --2-box-shadow: 0px 4px 4.7px 0px rgba(0, 0, 0, 0.25);
 }
 
-/* Figma Color Variables of your File */
 [data-misshacom-mode="desktop"] {
-    /* desktop */
     --color-white-solid: #ffffff;
     --color-black-solid: #000000;
     --color-red-35: #b10904;
@@ -41,7 +35,6 @@
 }
 
 [data-misshacom-mode="tablet"] {
-    /* tablet */
     --color-white-solid: #ffffff;
     --color-black-solid: #000000;
     --color-red-35: #b10904;
@@ -57,7 +50,6 @@
 }
 
 [data-misshacom-mode="mobile"] {
-    /* mobile */
     --color-white-solid: #ffffff;
     --color-black-solid: #000000;
     --color-red-35: #b10904;
@@ -73,7 +65,6 @@
 }
 
 
-/* Resetting margin/padding and defining box-sizing for all elements */
 .header,
 .gnb,
 .gnb * {
@@ -81,12 +72,9 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    /* Add this to remove default link underline */
     list-style: none;
-    /* Add this to remove default list style */
 }
 
-/* Base GNB Container */
 .gnb {
     background: var(--color-white-solid, #ffffff);
     border-bottom: 1px solid var(--color-grey-93, #eeeeee);
@@ -99,7 +87,6 @@
     z-index: 100;
 }
 
-/* Inner container for max-width and centering */
 .gnb_inner {
     display: flex;
     flex-direction: row;
@@ -111,7 +98,6 @@
     position: relative;
 }
 
-/* Logo */
 .gnb_logo_link {
     height: auto;
     display: flex;
@@ -124,8 +110,6 @@
     width: auto;
 }
 
-
-/* Main Navigation List */
 .gnb_list {
     display: flex;
     flex-direction: row;
@@ -137,7 +121,6 @@
     height: 100%;
 }
 
-/* Main Navigation Item */
 .gnb_item {
     height: 100%;
     display: flex;
@@ -145,7 +128,6 @@
     position: relative;
 }
 
-/* Main Navigation Link */
 .gnb_link {
     color: var(--color-black-solid, #000000);
     text-align: center;
@@ -158,15 +140,12 @@
     align-items: center;
 }
 
-/* Hover effect on GNB link - similar to the image's underline */
 .gnb_item:hover>.gnb_link {
     color: var(--color-black-solid, #000000);
     box-shadow: inset 0 -3px 0 0 var(--color-black-solid, #000000);
     font-weight: 500;
 }
 
-
-/* Dropdown Sub Menu (Initially hidden) */
 .sub_list {
     display: none;
     position: absolute;
@@ -178,15 +157,12 @@
     border: 1px solid var(--color-grey-93, #eeeeee);
     border-top: none;
     box-shadow: var(--2-box-shadow);
+    list-style: none;
+    width: max-content;
     min-width: 100%;
     white-space: nowrap;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(6, auto);
-    gap: 10px 40px;
-    width: 200px;
- 
-}
 
+}
 
 .gnb_list .gnb_item:last-child .sub_list {
     grid-template-rows: repeat(4, auto);
@@ -194,67 +170,160 @@
     gap: 10px 0;
 }
 
-/* Sub Menu Item */
 .sub_list li {
     padding: 2px 10px;
+    list-style: none;
 }
 
-/* Sub Menu Link */
 .sub_list a {
-   color: var(--color-grey-40, #666666);
-  font-family: var(--gnb20px-font-family, "Suit-Regular", sans-serif);
-  font-size: 16px;
-  line-height: 1.5;
-  display: block;
-  padding: 5px 0;
+    color: var(--color-grey-40, #666666);
+    font-family: var(--gnb20px-font-family, "Suit-Regular", sans-serif);
+    font-size: 16px;
+    line-height: 1.5;
+    display: block;
+    border: none;
+    padding: 5px 10px;
 }
 
-/* Highlighted sub link (for '전시실 대관료 조회')
-.sub_link_highlight {
-    color: var(--color-red-35, #b10904) !important;
-} */
-
-/* Sub Menu Hover effect */
 .sub_list a:hover {
     color: var(--color-red-35, #b10904);
     font-weight: 500;
 }
 
-
-.gnb_item:hover > .sub_list {
-    display: grid;
+.gnb_item:hover>.sub_list {
+    display: block;
 }
-/* Icons Section */
+
 .gnb_icon {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  align-items: center;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    position: relative;
 }
 
-/* Icon Button Styling */
 .gnb_icon_btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
 }
 
-/* Icon Image */
 .gnb_icon_img {
-  width: 30px;
-  height: 30px;
-  display: block;
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 
-/* Optional: Wrapper for the whole GNB structure to manage overflow if needed */
 .header {
     width: 100%;
     position: relative;
+}
+
+
+/* --- 햄버거 전체 메뉴 스타일 추가 시작 --- */
+
+/* 전체 메뉴 컨테이너 (기본 숨김) */
+.all_menu_wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 200;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+/* 전체 메뉴 내부 컨테이너 (실제 메뉴 박스) */
+.all_menu_inner {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100%;
+    background: var(--color-white-solid, #ffffff);
+    padding: 30px 30px 50px 30px;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+/* 메뉴 보이기 상태 (.is_active 클래스 추가 시) */
+.all_menu_wrap.is_active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.all_menu_wrap.is_active .all_menu_inner {
+    right: 0;
+}
+
+/* 메뉴 헤더 및 유틸리티 */
+.all_menu_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-grey-93, #eeeeee);
+}
+
+.all_menu_util a {
+    font-size: 14px;
+    color: var(--color-grey-40, #666666);
+    margin-left: 10px;
+}
+
+.all_menu_close_btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color-black-solid, #000000);
+}
+
+/* 메인 메뉴 항목 */
+.all_menu_item {
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.all_menu_link {
+    display: block;
+    font-size: 20px;
+    font-weight: 550;
+    color: var(--color-black-solid, #000000);
+    margin-bottom: 10px;
+    padding: 10px 0;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-grey-93, #eeeeee);
+}
+
+/* 서브 메뉴 목록 */
+.all_sub_list {
+    padding: 10px 0 0 15px;
+    list-style: none;
+}
+
+.all_sub_list li {
+    list-style: none;
+}
+
+.all_sub_list li a {
+    display: block;
+    font-size: 16px;
+    color: var(--color-grey-40, #666666);
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.all_sub_list li a:hover {
+    color: var(--color-red-35, #b10904);
 }
