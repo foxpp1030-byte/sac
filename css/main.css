@@ -538,8 +538,8 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     /* 아래쪽 정렬 */
-    padding-bottom: 60px;
-    /* 하단 여백 확보 */
+    padding-bottom: 80px;
+    /* 하단 여백 추가 (요청사항 반영) */
 }
 
 /* 오버레이 내부 컨텐츠 래퍼 (중앙 정렬용) */
@@ -670,16 +670,20 @@ body {
     gap: 10px;
 }
 
-/* 검은색 화살표용 클래스 */
+/* 검은색 화살표용 클래스 (기본 SVG를 검게 표시하려면 invert(0) 또는 brightness(0)) */
+/* Assuming right.svg is basically white/light, to make it black we use invert(1) if it was white, or brightness(0) if it has color */
+/* Let's try brightness(0) to force black */
 .icon_arrow_left_black {
     width: 60px;
     height: 60px;
     transform: rotate(180deg);
+    filter: brightness(0);
 }
 
 .icon_arrow_right_black {
     width: 60px;
     height: 60px;
+    filter: brightness(0);
 }
 
 .control_divider_black {
@@ -704,10 +708,8 @@ body {
 
 .story_item {
     flex-shrink: 0;
-    width: 400px;
-    /* 적절한 고정 너비 또는 flex-basis 설정 필요 */
-    /* 여기서는 화면에 4개 보이도록 1700px / 4 - gap 고려하여 약 395px */
     width: 395px;
+    /* (1700 - 40*3) / 4 approx */
 }
 
 /* 스토리 썸네일 스타일 */
@@ -723,6 +725,7 @@ body {
     justify-content: center;
     margin-bottom: 15px;
     overflow: hidden;
+    /* 자식 요소 둥글기 적용 */
 }
 
 /* 썸네일 어둡게 처리 (기본) */
@@ -785,13 +788,26 @@ body {
 }
 
 
-/* --- Section 5: Experience --- */
+/* --- Section 5: Experience (Updated) --- */
 .section_experience {
     background: #000000;
     padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* 헤더 왼쪽 정렬용 클래스 */
+.section_header_exp {
+    width: 1700px;
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 왼쪽 정렬 */
+    margin-bottom: 60px;
+    /* 본문과 여백 추가 */
 }
 
 .sub_desc_white {
@@ -932,10 +948,27 @@ body {
     color: #bbb;
     text-decoration: none;
     gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.side_item img {
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+/* Experience 아이콘 호버 시 밝아짐 */
+.side_item:hover img {
+    opacity: 1;
+    filter: brightness(1.5);
+    transform: scale(1.05);
+}
+
+.side_item:hover {
+    color: #fff;
 }
 
 
-/* --- Section 6: Venues --- */
+/* --- Section 6: Venues (Updated) --- */
 .section_venues {
     background: #f9fafb;
     padding: 100px 0;
@@ -975,6 +1008,22 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 펄스 애니메이션 키프레임 */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
 }
 
 .marker_ring {
@@ -985,17 +1034,20 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 2;
 }
 
+/* 펄스 효과용 가상 요소 */
 .marker_ring::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 50%;
-    opacity: 0.1;
+    z-index: -1;
+    /* 기본 상태는 정지 */
 }
 
 .marker_ring.blue {
@@ -1032,6 +1084,65 @@ body {
 
 .marker_ring.orange::before {
     background: #f59e0b;
+}
+
+/* 호버 시 펄스 애니메이션 적용 */
+.btn_venue_marker:hover .marker_ring::before {
+    animation: pulse-ring 1.5s infinite ease-out;
+}
+
+/* 툴팁 스타일 */
+.venue_tooltip {
+    position: absolute;
+    bottom: 80px;
+    /* 핀 위쪽 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.venue_tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+}
+
+.venue_tooltip h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.venue_tooltip p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 호버 시 툴팁 보이기 */
+.btn_venue_marker:hover .venue_tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 90px;
+    /* 살짝 위로 올라오는 효과 */
 }
 
 

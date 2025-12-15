@@ -286,8 +286,6 @@
                 <!-- Slider Window -->
                 <div class="upcoming_window">
                     <div class="upcoming_track">
-                        <!-- Items will be cloned by JS, so basic structure here is fine. -->
-
                         <!-- Card 1 -->
                         <article class="upcoming_card">
                             <div class="card_default">
@@ -461,7 +459,7 @@
             </div>
         </section>
 
-        <!-- Section 4: Story (Updated Structure) -->
+        <!-- Section 4: Story -->
         <section class="section_story">
             <div class="story_inner_wrap">
                 <header class="story_header">
@@ -473,13 +471,14 @@
                         <h2 class="story_title">Moments</h2>
                         <div class="title_underline_black"></div>
                     </div>
+                    <!-- Controls added here -->
                     <div class="header_controls">
                         <button class="control_btn btn_prev_story" aria-label="Previous Slide">
-                            <img src="./img/chevron-right3.svg" alt="prev" class="icon_arrow_left_black">
+                            <img src="./img/right.svg" alt="Previous" class="icon_arrow_left_black">
                         </button>
                         <div class="control_divider_black"></div>
                         <button class="control_btn btn_next_story" aria-label="Next Slide">
-                            <img src="./img/chevron-right4.svg" alt="next" class="icon_arrow_right_black">
+                            <img src="./img/right.svg" alt="Next" class="icon_arrow_right_black">
                         </button>
                     </div>
                 </header>
@@ -537,7 +536,8 @@
 
         <!-- Section 5: Experience -->
         <section class="section_experience">
-            <header class="section_header_center">
+            <!-- Header class changed for left alignment -->
+            <header class="section_header_exp">
                 <h2 class="main_title_eng">Experience</h2>
                 <p class="sub_desc_white">예술의전당이 준비한 특별한 경험과 혜택</p>
                 <div class="title_underline_white"></div>
@@ -605,25 +605,41 @@
             </header>
 
             <div class="venues_map_container" style="background-image: url('./img/view.png');">
-                <!-- Interactive Buttons -->
+                <!-- Interactive Buttons with Tooltips -->
                 <button class="btn_venue_marker" style="top: 424px; left: 600px;" aria-label="Venue 1">
                     <div class="marker_ring blue">
                         <img src="./img/icon13.svg" alt="">
+                    </div>
+                    <div class="venue_tooltip">
+                        <h4>오페라하우스</h4>
+                        <p>다양한 장르의 공연이<br>펼쳐지는 복합문화공간</p>
                     </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 276px; left: 504px;" aria-label="Venue 2">
                     <div class="marker_ring purple">
                         <img src="./img/icon14.svg" alt="">
                     </div>
+                    <div class="venue_tooltip">
+                        <h4>서울서예박물관</h4>
+                        <p>국내 유일의 서예 전용<br>전시 공간</p>
+                    </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 643px; left: 1148px;" aria-label="Venue 3">
                     <div class="marker_ring pink">
                         <img src="./img/icon15.svg" alt="">
                     </div>
+                    <div class="venue_tooltip">
+                        <h4>한가람미술관</h4>
+                        <p>현대미술 중심의<br>열린 미술관</p>
+                    </div>
                 </button>
                 <button class="btn_venue_marker" style="top: 372px; left: 1212px;" aria-label="Venue 4">
                     <div class="marker_ring orange">
                         <img src="./img/icon16.svg" alt="">
+                    </div>
+                    <div class="venue_tooltip">
+                        <h4>음악당</h4>
+                        <p>세계적인 수준의<br>음향 시설</p>
                     </div>
                 </button>
             </div>
