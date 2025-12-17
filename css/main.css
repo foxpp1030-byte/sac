@@ -124,25 +124,26 @@ body {
     height: 20px;
 }
 
-/* [수정] 배너 페이지네이션: 위치를 바닥에서 좀 더 띄우고(100px), 두꺼운 선(Bar) 형태로 변경 */
+/* [수정] 배너 페이지네이션: 위치를 바닥에서 좀 더 띄우고(80px), 막대(Bar) 형태로 변경 */
 .visual_pagination {
     position: absolute;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    gap: 12px;
     z-index: 100;
-    /* 배너 이미지보다 확실히 위에 오도록 */
+    /* 배너 내용물보다 더 위에 */
     justify-content: center;
 }
 
 .pagination_dot {
-    width: 60px;
+    width: 40px;
     /* 굵은 선(Bar) 너비 */
-    height: 5px;
+    height: 4px;
     /* 선 높이 */
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.3);
+    /* 비활성 상태 투명도 */
     border-radius: 0;
     /* 네모난 모양 */
     cursor: pointer;
@@ -757,9 +758,9 @@ body {
     z-index: 1;
 }
 
+/* [수정] 호버 시 배경 어둡게 유지 (opacity: 0 제거) */
 .story_item:hover .story_thumb::before {
-    opacity: 0;
-    /* 배경 어둡게 하는 효과 제거 */
+    /* opacity: 0; <- 제거 */
 }
 
 .time_badge {
@@ -781,21 +782,17 @@ body {
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;
-    /* transition 수정 */
+    /* 부드러운 전환 */
     opacity: 1;
-    /* 항상 보이게 */
 }
 
-/* [수정] 플레이 버튼 호버 효과: 투명도 대신 크기 확대 및 필터 적용 */
+/* [수정] 호버 시 플레이 버튼 사라지지 않고 커지면서 색상 강조 */
 .story_item:hover .btn_play {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
-    /* 붉은 빛 강조 예시 */
+    /* 20% 확대 */
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8));
+    /* 붉은색 그림자 효과 */
 }
-
-/* 만약 아이콘 이미지 자체를 바꾸고 싶다면 아래와 같이 filter 사용 가능 */
-/* .story_item:hover .btn_play img { filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); } -> Red Color Filter */
-
 
 .story_subject {
     font-size: 21px;
@@ -1266,12 +1263,10 @@ body {
     border-radius: 16px;
     padding: 40px 60px;
     box-sizing: border-box;
-    /* [수정] 높이 자동 조절 (내용에 맞춰 늘어남) */
-    height: auto;
-    min-height: 400px;
-    /* 최소 높이 설정 */
-    overflow: visible;
-    /* 내용 잘림 방지 */
+    /* [수정] 높이 고정: 공지사항(4개)이 잘리지 않도록 520px로 설정 */
+    height: 520px;
+    overflow: hidden;
+    /* 혹시 넘치는 경우 숨김 */
 }
 
 .board_header {

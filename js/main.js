@@ -75,114 +75,111 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ------------------------------------
-    // 2. 부드러운 흐름의 캐러셀 (Upcoming & Story)
+    // 2. 무한 루프 캐러셀 (Upcoming & Story 개선)
     // ------------------------------------
-    function setupFlowCarousel(trackSelector, btnPrevSelector, btnNextSelector, itemSelector, gap = 40, autoPlay = true) {
+    // [수정] 끊김 없는 무한 스크롤을 위한 로직 개선
+    function setupInfiniteCarousel(trackSelector, btnPrevSelector, btnNextSelector, itemSelector, gap = 40, autoPlay = true) {
         const track = document.querySelector(trackSelector);
-        const btnPrev = document.querySelector(btnPrevSelector);
-        const btnNext = document.querySelector(btnNextSelector);
-
-        if (!track || !btnPrev || !btnNext) return;
+        const prevBtn = document.querySelector(btnPrevSelector);
+        const nextBtn = document.querySelector(btnNextSelector);
+        if (!track || !prevBtn || !nextBtn) return;
 
         let items = Array.from(track.querySelectorAll(itemSelector));
         if (items.length === 0) return;
 
-        const itemWidth = items[0].offsetWidth;
-        const singleMove = itemWidth + gap;
-        const originalLength = items.length;
-        const totalOriginalWidth = originalLength * singleMove;
+        // 아이템의 실제 너비 계산 (margin 포함)
+        const itemWidth = items[0].offsetWidth + gap;
 
-        // [수정] 무한 스크롤 끊김 방지를 위한 복제 개수 및 로직 개선
-        // 앞뒤로 충분히 복제하여 뷰포트를 커버하고 자연스러운 루프 유도
+        // 앞뒤로 복제할 개수 (화면에 꽉 찰 정도로 충분히)
+        const cloneCount = 3;
 
-        // 1. 기존 아이템들을 뒤에 복제 (End Clones) - 충분히 많이
-        const cloneCount = 6;
+        // 1. 뒤쪽에 복제 (Start Clones at End)
         for (let i = 0; i < cloneCount; i++) {
-            // 원본 순서대로 복제하여 뒤에 붙임 (A B C D -> A' B' C' D')
-            // 인덱스 모듈러 연산으로 원본 아이템을 순환하며 복제
-            const sourceItem = items[i % originalLength];
-            const clone = sourceItem.cloneNode(true);
+            const clone = items[i].cloneNode(true);
             clone.classList.add('clone');
             track.appendChild(clone);
         }
-
-        // 상태 변수
-        let currentOffset = 0;
-        const speed = 0.8;
-        let isAnimating = true;
-        let animationFrameId;
-        let isSnapping = false;
-
-        // 애니메이션 루프
-        function loop() {
-            if (isAnimating && !isSnapping && autoPlay) {
-                currentOffset += speed;
-
-                // [핵심] 리셋 포인트 도달 시 '순간 이동' (Transition 없이)
-                // totalOriginalWidth 지점에 도달하면, 
-                // 화면상 보이는 것은 복제된 첫 번째 아이템(A')이므로
-                // 실제 첫 번째 아이템(A) 위치인 0으로 되돌려도 시각적 변화 없음
-                if (currentOffset >= totalOriginalWidth) {
-                    currentOffset = 0; // 0으로 즉시 리셋
-                }
-
-                track.style.transform = `translateX(-${currentOffset}px)`;
-            }
-            animationFrameId = requestAnimationFrame(loop);
+        // 2. 앞쪽에 복제 (End Clones at Start)
+        for (let i = items.length - 1; i >= items.length - cloneCount; i--) {
+            const clone = items[i].cloneNode(true);
+            clone.classList.add('clone');
+            track.insertBefore(clone, track.firstChild);
         }
 
-        // 초기 시작
-        animationFrameId = requestAnimationFrame(loop);
+        // 현재 인덱스는 앞쪽 복제본 개수부터 시작 (실제 첫 아이템)
+        let currentIndex = cloneCount;
+        let isAnimating = false;
+        let autoPlayInterval;
 
-        // 버튼 클릭 시 이동 함수 (Snap Move)
-        function snapMove(direction) {
-            isSnapping = true;
-            isAnimating = false;
+        // 초기 위치 설정 (애니메이션 없이)
+        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-            const currentIndex = Math.round(currentOffset / singleMove);
-            let targetIndex = currentIndex + direction;
-            let targetOffset = targetIndex * singleMove;
+        // 위치 업데이트 함수
+        function updatePosition(useTransition = true) {
+            if (useTransition) {
+                track.style.transition = 'transform 0.5s ease-in-out';
+            } else {
+                track.style.transition = 'none';
+            }
+            track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
 
-            track.style.transition = 'transform 0.5s ease-in-out';
-            track.style.transform = `translateX(-${targetOffset}px)`;
+        // 다음 버튼 클릭
+        nextBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex++;
+            updatePosition(true);
+
+            // 애니메이션 끝난 후 처리
+            setTimeout(() => {
+                // 만약 마지막 복제본(끝)에 도달했다면 -> 실제 첫 아이템 위치로 이동 (순간이동)
+                if (currentIndex >= items.length + cloneCount) {
+                    currentIndex = cloneCount;
+                    updatePosition(false);
+                }
+                isAnimating = false;
+            }, 500); // transition 시간과 일치
+        });
+
+        // 이전 버튼 클릭
+        prevBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex--;
+            updatePosition(true);
 
             setTimeout(() => {
-                track.style.transition = 'none';
-
-                // 이동 완료 후 논리적 위치 재계산
-                currentOffset = targetOffset;
-
-                // [수정] 범위 보정 로직 (순환 처리)
-                if (currentOffset < 0) {
-                    // 왼쪽 끝(0)보다 더 왼쪽으로 갔을 때 -> 맨 뒤쪽의 해당 아이템 위치로 이동
-                    // 예: A에서 왼쪽 누름 -> D' 위치로
-                    currentOffset = totalOriginalWidth - singleMove;
-                    track.style.transform = `translateX(-${currentOffset}px)`;
-                } else if (currentOffset >= totalOriginalWidth) {
-                    // 오른쪽 끝(복제본 시작점)을 넘어갔을 때 -> 맨 앞(0)으로 이동
-                    currentOffset = currentOffset - totalOriginalWidth;
-                    track.style.transform = `translateX(-${currentOffset}px)`;
+                // 만약 앞쪽 복제본(처음)에 도달했다면 -> 실제 마지막 아이템 위치로 이동 (순간이동)
+                if (currentIndex < cloneCount) {
+                    currentIndex = items.length + cloneCount - 1;
+                    updatePosition(false);
                 }
-
-                isSnapping = false;
-                isAnimating = true;
+                isAnimating = false;
             }, 500);
+        });
+
+        // 자동 재생 (옵션)
+        if (autoPlay) {
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    nextBtn.click();
+                }, 3000);
+            }
+
+            startAutoPlay();
+
+            // 마우스 올리면 멈춤
+            track.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+            track.parentElement.addEventListener('mouseleave', () => startAutoPlay());
         }
-
-        // 이벤트 리스너
-        btnNext.addEventListener('click', () => snapMove(1));
-        btnPrev.addEventListener('click', () => snapMove(-1));
-
-        // 마우스 호버 시 멈춤
-        track.addEventListener('mouseenter', () => { isAnimating = false; });
-        track.addEventListener('mouseleave', () => { if (!isSnapping) isAnimating = true; });
     }
 
-    // [실행] Upcoming 섹션: 자동 재생 켬 (true)
-    setupFlowCarousel('.upcoming_track', '.btn_prev_upcoming', '.btn_next_upcoming', '.upcoming_card', 40, true);
+    // [실행] Upcoming 섹션: 자동 재생 켬
+    setupInfiniteCarousel('.upcoming_track', '.btn_prev_upcoming', '.btn_next_upcoming', '.upcoming_card', 40, true);
 
-    // [실행] Story 섹션: 자동 재생 끔 (false) - 화살표 클릭 시에만 이동
-    setupFlowCarousel('.story_track', '.btn_prev_story', '.btn_next_story', '.story_item', 40, false);
+    // [실행] Story 섹션: 자동 재생 끔 (클릭 시에만 이동)
+    setupInfiniteCarousel('.story_track', '.btn_prev_story', '.btn_next_story', '.story_item', 40, false);
 
 
     // ------------------------------------
