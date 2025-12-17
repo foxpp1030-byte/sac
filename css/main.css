@@ -1,5 +1,5 @@
 /* =========================================
-   기존 스타일 유지 (Today 섹션 등)
+   기존 스타일 유지 + 수정사항 반영
    ========================================= */
 
 /* 전체 폰트 적용 (Suit) */
@@ -17,11 +17,150 @@ body {
     font-family: 'Suit', sans-serif;
 }
 
-.section_today,
-.section_today * {
-    box-sizing: border-box;
+/* --- Section 1: Main Visual (Updated for Pagination) --- */
+.section_main_visual {
+    width: 100vw;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
+.visual_container {
+    display: flex;
+    width: 400%;
+    /* 4 slides */
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.visual_item {
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.visual_center_wrap {
+    width: 1700px;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+.visual_content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    width: 700px;
+    max-width: 90%;
+}
+
+.visual_text_group {
+    margin-bottom: 50px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.visual_date {
+    display: block;
+    font-size: 20px;
+    color: #e9d4ff;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.visual_title {
+    font-size: 72px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+}
+
+.visual_desc {
+    font-size: 24px;
+    color: #f3e8ff;
+    margin: 0;
+    font-weight: 300;
+}
+
+.btn_booking {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #59168b;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    width: auto;
+    min-width: 140px;
+}
+
+.btn_booking:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn_booking span {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.icon_arrow {
+    width: 20px;
+    height: 20px;
+}
+
+/* [수정] 배너 페이지네이션: 위치를 바닥에서 좀 더 띄우고(100px), 두꺼운 선(Bar) 형태로 변경 */
+.visual_pagination {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+    /* 배너 이미지보다 확실히 위에 오도록 */
+    justify-content: center;
+}
+
+.pagination_dot {
+    width: 60px;
+    /* 굵은 선(Bar) 너비 */
+    height: 5px;
+    /* 선 높이 */
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 0;
+    /* 네모난 모양 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination_dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.pagination_dot.active {
+    background: #ffffff;
+    /* 활성화 시 완전 하얀색 */
+    opacity: 1;
+}
+
+
+/* --- Section 2: Today --- */
 .section_today {
     background: var(--color-white-solid, #ffffff);
     padding: 100px 0;
@@ -126,6 +265,18 @@ body {
     overflow: hidden;
 }
 
+/* [추가] 게시물 전체 클릭을 위한 투명 오버레이 링크 */
+.post_link_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
 .post_img {
     width: 100%;
     height: 100%;
@@ -212,12 +363,7 @@ body {
     margin: 0;
 }
 
-
-/* =========================================
-   새로운 섹션 스타일 (Refactored)
-   ========================================= */
-
-/* --- 공통 타이틀 스타일 --- */
+/* --- Common Titles --- */
 .main_title_eng {
     color: #ffffff;
     font-family: "Suit-Medium", sans-serif;
@@ -265,114 +411,6 @@ body {
     background: #000000;
     margin-bottom: 20px;
 }
-
-
-/* --- Section 1: Main Visual --- */
-.section_main_visual {
-    width: 100vw;
-    height: 800px;
-    overflow: hidden;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.visual_container {
-    display: flex;
-    width: 400%;
-    height: 100%;
-    transition: transform 0.8s ease-in-out;
-}
-
-.visual_item {
-    width: 100vw;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.visual_center_wrap {
-    width: 1700px;
-    max-width: 90%;
-    margin: 0 auto;
-    height: 100%;
-    position: relative;
-}
-
-.visual_content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 20px;
-    width: 700px;
-    max-width: 90%;
-}
-
-.visual_text_group {
-    margin-bottom: 50px;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.visual_date {
-    display: block;
-    font-size: 20px;
-    color: #e9d4ff;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-.visual_title {
-    font-size: 72px;
-    font-weight: 500;
-    margin: 0 0 16px 0;
-    line-height: 1.1;
-}
-
-.visual_desc {
-    font-size: 24px;
-    color: #f3e8ff;
-    margin: 0;
-    font-weight: 300;
-}
-
-.btn_booking {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #59168b;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-    width: auto;
-    min-width: 140px;
-}
-
-.btn_booking:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn_booking span {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.icon_arrow {
-    width: 20px;
-    height: 20px;
-}
-
 
 /* --- Section 3: Upcoming (Updated) --- */
 .section_upcoming {
@@ -515,7 +553,7 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* 호버 오버레이 수정: 배경 투명도 85%, 하단 여백 확보 */
+/* [수정] 호버 오버레이: 글자가 위로 더 올라오도록 padding-bottom 증가 */
 .card_overlay {
     position: absolute;
     top: 0;
@@ -523,7 +561,6 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    /* 투명도 85% */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -531,8 +568,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 110px;
-    /* 텍스트 뭉치 위로 올리기 위해 하단 패딩 증가 */
+    padding-bottom: 150px;
 }
 
 .overlay_inner {
@@ -567,7 +603,6 @@ body {
     font-size: 36px;
     font-weight: 500;
     margin: 0 0 5px 0;
-    /* 제목과 소제목 간격 축소 */
     line-height: 1.3;
 }
 
@@ -575,18 +610,14 @@ body {
     color: #d1d5dc;
     font-size: 20px;
     margin-bottom: 30px;
-    /* 텍스트 그룹과 구분선 사이 간격 */
     line-height: 1.5;
 }
 
-/* [중요] 구분선 스타일을 리스트 구분선과 완벽하게 일치시킴 */
 .divider_transparent {
     width: 100%;
     height: 1px;
     background: rgba(255, 255, 255, 0.3);
-    /* 리스트 라인과 동일한 색상/투명도 */
     margin-bottom: 0;
-    /* 마진 제거 (리스트 패딩으로 간격 조절) */
 }
 
 .info_list {
@@ -601,9 +632,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    /* 상단 구분선과 동일한 스타일 */
     padding: 15px 0;
-    /* 상하 패딩을 주어 라인 간 간격 균일화 */
 }
 
 .info_list li:last-child {
@@ -620,7 +649,6 @@ body {
     font-size: 18px;
     font-weight: 500;
 }
-
 
 /* --- Section 4: Story (Updated) --- */
 .section_story {
@@ -731,6 +759,7 @@ body {
 
 .story_item:hover .story_thumb::before {
     opacity: 0;
+    /* 배경 어둡게 하는 효과 제거 */
 }
 
 .time_badge {
@@ -751,12 +780,22 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 2;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    /* transition 수정 */
+    opacity: 1;
+    /* 항상 보이게 */
 }
 
+/* [수정] 플레이 버튼 호버 효과: 투명도 대신 크기 확대 및 필터 적용 */
 .story_item:hover .btn_play {
-    opacity: 0;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+    /* 붉은 빛 강조 예시 */
 }
+
+/* 만약 아이콘 이미지 자체를 바꾸고 싶다면 아래와 같이 filter 사용 가능 */
+/* .story_item:hover .btn_play img { filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); } -> Red Color Filter */
+
 
 .story_subject {
     font-size: 21px;
@@ -771,7 +810,7 @@ body {
 }
 
 
-/* --- Section 5: Experience (Updated) --- */
+/* --- Section 5: Experience --- */
 .section_experience {
     background: #000000;
     padding: 100px 0;
@@ -945,8 +984,7 @@ body {
     color: #fff;
 }
 
-
-/* --- Section 6: Venues (Updated) --- */
+/* --- Section 6: Venues --- */
 .section_venues {
     background: #f9fafb;
     padding: 100px 0;
@@ -1166,6 +1204,8 @@ body {
     display: flex;
     justify-content: center;
     position: relative;
+    /* [수정] 섹션 높이 자동 조절 */
+    height: auto;
 }
 
 .section_news::before {
@@ -1226,7 +1266,12 @@ body {
     border-radius: 16px;
     padding: 40px 60px;
     box-sizing: border-box;
+    /* [수정] 높이 자동 조절 (내용에 맞춰 늘어남) */
+    height: auto;
     min-height: 400px;
+    /* 최소 높이 설정 */
+    overflow: visible;
+    /* 내용 잘림 방지 */
 }
 
 .board_header {
@@ -1253,6 +1298,7 @@ body {
 
 .board_list {
     display: none;
+    height: auto;
 }
 
 .board_list.active {
@@ -1278,7 +1324,6 @@ body {
     text-decoration: none;
 }
 
-
 /* --- Section 8: Partners (Infinite Scroll) --- */
 .section_partners {
     background: #f4f4f4;
@@ -1289,11 +1334,11 @@ body {
 }
 
 .partners_inner {
-    width: 1700px;
-    max-width: 90%;
-    margin: 0 auto;
-    border-radius: 12px;
-    border: 1px solid transparent;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
     overflow: hidden;
 }
 
@@ -1332,7 +1377,6 @@ body {
     filter: grayscale(0%);
     opacity: 1;
 }
-
 
 /* --- Footer --- */
 .footer {

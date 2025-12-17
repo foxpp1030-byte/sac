@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./css/gnb.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Script -->
-    <script src="./js/main.js"></script>
-    <script src="./js/gnb.js"></script>
+    <script src="./js/gnb.js" defer></script>
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body>
@@ -192,7 +192,7 @@
                     </div>
                 </article>
 
-                <!-- Slide 1 (Clone) -->
+                <!-- Slide 1 (Clone for Loop) -->
                 <article class="visual_item" style="background-image: url('./img/banner1.png');">
                     <div class="visual_center_wrap">
                         <div class="visual_content">
@@ -209,6 +209,8 @@
                     </div>
                 </article>
             </div>
+            <!-- 배너 페이지네이션 -->
+            <div class="visual_pagination"></div>
         </section>
 
         <!-- Section 2: Today -->
@@ -236,6 +238,7 @@
                         <h3 class="post_title">Salt path</h3>
                         <p class="post_date_location">오페라극장 | 2025.09.07 3:00</p>
                     </div>
+                    <a href="#" class="post_link_overlay" aria-label="자세히 보기"></a>
                 </article>
 
                 <article class="post_item post_medium_top_a" data-post-id="2">
@@ -244,6 +247,7 @@
                         <h3 class="post_title">Isabelle de Ganay</h3>
                         <p class="post_date_location">전시실 | 2025.12.01 ~</p>
                     </div>
+                    <a href="#" class="post_link_overlay" aria-label="자세히 보기"></a>
                 </article>
 
                 <article class="post_item post_medium_top_b" data-post-id="3">
@@ -252,6 +256,7 @@
                         <h3 class="post_title">Pink Panther</h3>
                         <p class="post_date_location">디자인 미술관 | 2025.07.01 ~</p>
                     </div>
+                    <a href="#" class="post_link_overlay" aria-label="자세히 보기"></a>
                 </article>
 
                 <article class="post_item post_medium_bottom" data-post-id="4">
@@ -260,6 +265,7 @@
                         <h3 class="post_title">Quartet TACH</h3>
                         <p class="post_date_location">콘서트홀 | 2025.11.20 8:00</p>
                     </div>
+                    <a href="#" class="post_link_overlay" aria-label="자세히 보기"></a>
                 </article>
             </div>
         </section>
@@ -344,7 +350,7 @@
                             </div>
                         </article>
 
-                        <!-- Card 3 (Updated Kirill Card) -->
+                        <!-- Card 3 -->
                         <article class="upcoming_card">
                             <div class="card_default">
                                 <div class="card_img_wrap">
@@ -607,7 +613,6 @@
 
             <div class="venues_map_container" style="background-image: url('./img/view.png');">
                 <!-- Interactive Buttons -->
-                <!-- 1. 불릿 위치 재조정 -->
                 <button class="btn_venue_marker" style="top: 300px; left: 550px;" aria-label="Venue 1">
                     <div class="marker_ring blue">
                         <img src="./img/icon13.svg" alt="">

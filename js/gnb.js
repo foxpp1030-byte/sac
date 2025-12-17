@@ -1,4 +1,4 @@
-// main.js 파일 내용
+// gnb.js 파일 내용
 
 document.addEventListener('DOMContentLoaded', () => {
     // 햄버거 버튼 (전체 메뉴 열기 버튼)
