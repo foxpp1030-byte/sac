@@ -1,0 +1,791 @@
+@charset "utf-8";
+
+/* =========================================
+   Tablet Layout (769px ~ 1300px)
+   ========================================= */
+@media screen and (max-width: 1300px) and (min-width: 769px) {
+
+    /* [공통] 컨테이너 너비 960px 고정 */
+    .gnb_inner,
+    .visual_center_wrap,
+    .today_header,
+    .post_container,
+    .upcoming_inner_wrap,
+    .story_inner_wrap,
+    .section_header_exp,
+    .experience_container,
+    .section_header_left,
+    .venues_map_container,
+    .news_inner,
+    .footer_inner {
+        width: 960px !important;
+        max-width: 95vw !important;
+        margin: 0 auto !important;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 1. GNB */
+    .gnb_list {
+        gap: 30px;
+    }
+
+    .gnb_link {
+        font-size: 16px;
+    }
+
+    /* 2. Main Visual */
+    .section_main_visual,
+    .visual_container,
+    .visual_item {
+        height: 500px !important;
+    }
+
+    .visual_content {
+        left: 0;
+        padding-left: 0;
+        width: 600px;
+    }
+
+    .visual_title {
+        font-size: 50px;
+    }
+
+    /* 3. Today */
+    .today_header {
+        align-items: flex-end !important;
+        margin-bottom: 20px;
+    }
+
+    .today_more_link {
+        margin-bottom: 7px !important;
+    }
+
+    .post_container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 260px 260px !important;
+        gap: 20px !important;
+        height: auto !important;
+    }
+
+    .post_large {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .post_large .post_img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    .post_medium_top_a {
+        grid-column: 2;
+        grid-row: 1;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .post_medium_bottom {
+        grid-column: 2;
+        grid-row: 2;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .post_medium_top_b {
+        display: none !important;
+    }
+
+
+    /* 4. Upcoming & Story */
+    .upcoming_inner_wrap,
+    .story_inner_wrap {
+        overflow: hidden;
+    }
+
+    .upcoming_card {
+        width: 460px !important;
+        height: auto !important;
+        min-height: 450px !important;
+    }
+
+    .story_item {
+        width: 460px !important;
+    }
+
+    .story_thumb {
+        height: 260px !important;
+    }
+
+    /* 5. Experience (수정: 이미지 1개만, 아이콘 한줄) */
+    .section_header_exp {
+        margin-bottom: 40px !important;
+    }
+
+    .experience_container {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* [수정 2] 오디션 배너: 가로 길이 맞춤 및 이미지 정리 */
+    .exp_banner_large {
+        width: 100% !important;
+        min-height: 340px;
+        padding: 30px 40px;
+        box-sizing: border-box !important;
+        /* 패딩 포함 크기 계산 */
+    }
+
+    .exp_text {
+        width: 60%;
+        /* 텍스트 공간 확보 */
+    }
+
+    /* [수정 2] 이미지 그룹: 세로 사진 1개만 노출 */
+    .exp_visual_group {
+        display: block !important;
+        width: 30%;
+        /* 공간 줄임 */
+    }
+
+    .img_main {
+        display: none !important;
+        /* 가로형 메인 이미지 숨김 */
+    }
+
+    .img_sub_group {
+        width: 100%;
+        display: block !important;
+    }
+
+    .img_sub {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover;
+    }
+
+    /* 두 번째 세로 이미지 숨김 (하나만 보여주기 위함) */
+    .img_sub:nth-child(2) {
+        display: none !important;
+    }
+
+
+    /* [수정 3] SAC Wit: 아이콘 한 줄 배치 */
+    .exp_banner_side {
+        width: 100% !important;
+        height: auto !important;
+        padding: 50px 0 !important;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center;
+        background: #2a2a2a;
+    }
+
+    .side_title {
+        text-align: center !important;
+        margin: 0 0 30px 0 !important;
+        width: 100%;
+    }
+
+    .side_grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        /* 줄바꿈 방지 */
+        justify-content: center;
+        gap: 50px !important;
+        /* 간격 적절히 조절 */
+        width: 100%;
+    }
+
+    .side_item {
+        width: auto !important;
+        flex: 0 0 auto;
+        /* 크기 줄어듦 방지 */
+    }
+
+
+    /* 6. Venues Map */
+    .venues_map_container {
+        height: auto;
+    }
+
+    .btn_venue_marker {
+        transform: scale(0.8);
+    }
+
+
+    /* 7. News */
+    .news_inner {
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 20px !important;
+    }
+
+    .news_left {
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        background: none !important;
+        margin-bottom: 0 !important;
+    }
+
+    .news_title {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .news_right_board {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 30px 40px !important;
+        overflow: visible !important;
+    }
+
+    .board_list {
+        margin-bottom: 0 !important;
+    }
+
+
+    /* 8. Footer (수정: 라인 복구) */
+    .footer {
+        padding: 40px 0 80px 0 !important;
+    }
+
+    .footer_inner {
+        position: relative !important;
+        padding-bottom: 0 !important;
+    }
+
+    .footer_top {
+        display: block !important;
+        border: none !important;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .footer_menu {
+        justify-content: flex-start !important;
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }
+
+    .footer_info {
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        margin-bottom: 10px;
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    .info_row {
+        justify-content: flex-start !important;
+    }
+
+    /* [수정 1] Footer Bottom 선 복구 */
+    .footer_bottom {
+        border-top: 1px solid #333 !important;
+        /* 선 복구 */
+        padding-top: 20px !important;
+        margin-top: 30px !important;
+        margin-bottom: 60px;
+    }
+
+    .footer_sns {
+        position: absolute !important;
+        bottom: -40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        justify-content: center;
+        width: auto !important;
+    }
+}
+
+/* Mobile Layout (768px 이하) - 기존 유지 */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .gnb_inner,
+    .visual_center_wrap,
+    .today_header,
+    .post_container,
+    .upcoming_inner_wrap,
+    .story_inner_wrap,
+    .section_header_exp,
+    .experience_container,
+    .section_header_left,
+    .venues_map_container,
+    .news_inner,
+    .footer_inner {
+        width: 343px !important;
+        max-width: 343px;
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 폰트 사이즈 조정 */
+    .main_title_eng,
+    .main_title_eng_black,
+    .today_main_title .title_text,
+    .story_title,
+    .news_title {
+        font-size: 32px !important;
+        line-height: 1.2;
+    }
+
+    .sub_desc_white,
+    .sub_desc_gray {
+        font-size: 16px;
+    }
+
+    .visual_title {
+        font-size: 40px;
+    }
+
+    /* GNB Mobile */
+    .gnb {
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .gnb_inner {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .gnb_logo {
+        height: 24px;
+    }
+
+    .gnb_list {
+        display: none;
+    }
+
+    .gnb_icon {
+        gap: 15px;
+    }
+
+    /* Main Visual Mobile */
+    .section_main_visual,
+    .visual_container,
+    .visual_item {
+        height: 600px;
+    }
+
+    .visual_content {
+        width: 343px;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        top: auto;
+        padding: 0;
+        text-align: left;
+    }
+
+    .visual_date {
+        font-size: 14px;
+        margin-bottom: 8px;
+        opacity: 0.8;
+    }
+
+    .visual_desc {
+        font-size: 16px;
+        margin-bottom: 24px;
+        white-space: normal;
+        word-break: keep-all;
+    }
+
+    .btn_booking {
+        width: 140px;
+        padding: 10px 15px;
+    }
+
+    .visual_pagination {
+        bottom: 40px;
+    }
+
+    /* Today Mobile */
+    .section_today {
+        padding: 60px 0;
+    }
+
+    .today_header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .today_title_wrap {
+        gap: 0;
+    }
+
+    .today_main_title {
+        gap: 10px;
+    }
+
+    .title_line {
+        width: 40px;
+        margin-bottom: 0;
+    }
+
+    .today_more_link {
+        position: static;
+        margin: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon_chevron_right {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 모바일에서는 세로로 쭉 나열 */
+    .post_container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+    }
+
+    .post_item,
+    .post_large,
+    .post_medium_top_a,
+    .post_medium_top_b,
+    .post_medium_bottom {
+        width: 100%;
+        height: 250px;
+        border-radius: 0;
+        display: block;
+        /* 모바일은 다 보임 */
+    }
+
+    /* 모바일에서는 순서대로 다 보여주기 */
+    .post_medium_top_a {
+        display: block;
+    }
+
+    .post_medium_top_b {
+        display: block;
+    }
+
+    .post_info_wrap {
+        padding: 20px;
+        opacity: 1;
+    }
+
+    .post_title {
+        font-size: 22px;
+    }
+
+    /* Upcoming Mobile */
+    .section_upcoming {
+        padding: 60px 0;
+    }
+
+    .upcoming_header {
+        margin-bottom: 30px;
+    }
+
+    .header_controls {
+        display: none;
+    }
+
+    .upcoming_card {
+        width: 300px;
+        height: auto;
+        min-height: 480px;
+    }
+
+    .card_content {
+        padding: 20px;
+    }
+
+    /* Story Mobile */
+    .section_story {
+        padding: 60px 0;
+    }
+
+    .story_header {
+        align-items: flex-end;
+    }
+
+    .story_item {
+        width: 280px;
+    }
+
+    .story_thumb {
+        height: 180px;
+    }
+
+    /* Experience Mobile */
+    .section_experience {
+        padding: 60px 0;
+        background: #000;
+    }
+
+    .experience_container {
+        gap: 40px;
+    }
+
+    .exp_banner_large {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exp_tag {
+        display: inline-block;
+        position: static;
+        padding: 4px 12px;
+        background: #fff;
+        color: #000;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .exp_content_wrap {
+        padding: 0;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .exp_text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .exp_title {
+        font-size: 30px;
+        color: #fff;
+        margin: 0 0 20px 0;
+    }
+
+    .exp_period_wrap {
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    .exp_desc {
+        color: #999;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .btn_apply {
+        border: 1px solid #fff;
+        padding: 12px 24px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .exp_visual_group {
+        display: none;
+        /* 모바일에서는 이미지 숨김 */
+    }
+
+    .exp_banner_side {
+        width: 100%;
+        padding: 0;
+        background: transparent;
+        display: block;
+        height: auto;
+    }
+
+    .side_title {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .side_grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        width: 100%;
+    }
+
+    .side_item {
+        padding: 10px 0;
+        gap: 8px;
+    }
+
+    .side_item img {
+        width: 36px;
+        height: 36px;
+        filter: invert(1);
+    }
+
+    .side_item span {
+        font-size: 11px;
+        color: #ccc;
+    }
+
+    /* Venues Mobile */
+    .section_venues {
+        padding: 60px 0;
+    }
+
+    .venue_bg_img {
+        height: 343px;
+        object-fit: cover;
+    }
+
+    /* News Mobile */
+    .section_news {
+        padding: 60px 0;
+    }
+
+    .news_inner {
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+    }
+
+    .news_left {
+        width: 100%;
+        height: 200px;
+        background: url('../img/bg.png') no-repeat center/cover;
+        padding: 30px;
+        border-radius: 12px;
+        position: relative;
+    }
+
+    .news_left::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 12px;
+        z-index: 1;
+    }
+
+    .news_title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #fff;
+        position: relative;
+        z-index: 2;
+    }
+
+    .news_links {
+        position: relative;
+        z-index: 2;
+    }
+
+    .news_right_board {
+        width: 100%;
+        padding: 24px;
+        background: #1d293d;
+        border-radius: 12px;
+        min-height: auto;
+    }
+
+    /* Footer Mobile */
+    .footer {
+        padding: 50px 0;
+        background: #111;
+        color: #888;
+        text-align: left;
+    }
+
+    .footer_inner {
+        gap: 30px;
+    }
+
+    .footer_top {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        gap: 20px;
+        border: none;
+    }
+
+    .footer_sns {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .footer_sns a {
+        width: 36px;
+        height: 36px;
+        background: #222;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer_sns img {
+        width: 18px;
+        filter: grayscale(1);
+        opacity: 0.7;
+    }
+
+    .footer_menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 10px 0;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        margin: 0;
+    }
+
+    .footer_menu li {
+        padding: 0;
+        border: none;
+    }
+
+    .footer_menu a {
+        font-size: 13px;
+        color: #bbb;
+    }
+
+    .footer_info {
+        gap: 6px;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+    }
+
+    .info_row span {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .footer_bottom {
+        border: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .copyright {
+        margin-top: 10px;
+        font-size: 11px;
+        color: #444;
+    }
+}
