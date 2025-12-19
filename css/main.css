@@ -981,7 +981,7 @@ body {
     color: #fff;
 }
 
-/* --- Section 6: Venues --- */
+/* --- Section 6: Venues (Modified) --- */
 .section_venues {
     background: #f9fafb;
     padding: 100px 0;
@@ -1004,18 +1004,24 @@ body {
 
 .venues_map_container {
     width: 1700px;
-    height: 700px;
+    height: auto;
+    /* 높이 자동 조절 (이미지 비율에 맞춤) */
     max-width: 90%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* 이미지 반복 방지 */
-    background-position: center;
     position: relative;
     margin: 0 auto;
     border-radius: 20px;
-    /* overflow: hidden;  <-- 마커가 이미지 밖으로 나갈 수도 있으니 필요하면 제거하거나 유지 */
     overflow: hidden;
+    /* 배경 이미지 속성 제거 -> img 태그로 대체 */
 }
+
+.venue_bg_img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* 하단 여백 제거 */
+    object-fit: cover;
+}
+
 
 .btn_venue_marker {
     position: absolute;

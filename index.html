@@ -603,7 +603,7 @@
             </div>
         </section>
 
-        <!-- Section 6: Venues -->
+        <!-- Section 6: Venues (Modified to use img tag for full fit) -->
         <section class="section_venues">
             <header class="section_header_left">
                 <div class="title_underline_black"></div>
@@ -611,9 +611,13 @@
                 <p class="sub_desc_gray">오늘, 예술의전당에서 펼쳐지는 순간들</p>
             </header>
 
-            <div class="venues_map_container" style="background-image: url('./img/view.png');">
-                <!-- Interactive Buttons -->
-                <button class="btn_venue_marker" style="top: 300px; left: 550px;" aria-label="Venue 1">
+            <div class="venues_map_container">
+                <!-- Background Image as IMG tag -->
+                <img src="./img/view.png" alt="Venue Map" class="venue_bg_img">
+
+                <!-- Interactive Buttons (Converted px to % for responsiveness) -->
+                <!-- 1. Opera House: 550px/1700px ~ 32%, 300px/700px ~ 43% -->
+                <button class="btn_venue_marker" style="top: 19%; left: 34%;" aria-label="Venue 1">
                     <div class="marker_ring blue">
                         <img src="./img/icon13.svg" alt="">
                     </div>
@@ -622,7 +626,9 @@
                         <p>다양한 장르의 공연이<br>펼쳐지는 복합문화공간</p>
                     </div>
                 </button>
-                <button class="btn_venue_marker" style="top: 200px; left: 450px;" aria-label="Venue 2">
+
+                <!-- 2. Seoul Calligraphy Art Museum: 450px/1700px ~ 26%, 200px/700px ~ 28% -->
+                <button class="btn_venue_marker" style="top: 50%; left: 40%;" aria-label="Venue 2">
                     <div class="marker_ring purple">
                         <img src="./img/icon14.svg" alt="">
                     </div>
@@ -631,7 +637,9 @@
                         <p>국내 유일의 서예 전용<br>전시 공간</p>
                     </div>
                 </button>
-                <button class="btn_venue_marker" style="top: 500px; left: 1000px;" aria-label="Venue 3">
+
+                <!-- 3. Hangaram Art Museum: 1000px/1700px ~ 59%, 500px/700px ~ 71% -->
+                <button class="btn_venue_marker" style="top: 53%; left: 60%;" aria-label="Venue 3">
                     <div class="marker_ring pink">
                         <img src="./img/icon15.svg" alt="">
                     </div>
@@ -640,7 +648,9 @@
                         <p>현대미술 중심의<br>열린 미술관</p>
                     </div>
                 </button>
-                <button class="btn_venue_marker" style="top: 330px; left: 1100px;" aria-label="Venue 4">
+
+                <!-- 4. Music Hall: 1100px/1700px ~ 65%, 330px/700px ~ 47% -->
+                <button class="btn_venue_marker" style="top: 40%; left: 77%;" aria-label="Venue 4">
                     <div class="marker_ring orange">
                         <img src="./img/icon16.svg" alt="">
                     </div>
