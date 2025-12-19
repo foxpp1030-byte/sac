@@ -1006,11 +1006,14 @@ body {
     width: 1700px;
     height: 700px;
     max-width: 90%;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* 이미지 반복 방지 */
     background-position: center;
     position: relative;
     margin: 0 auto;
     border-radius: 20px;
+    /* overflow: hidden;  <-- 마커가 이미지 밖으로 나갈 수도 있으니 필요하면 제거하거나 유지 */
     overflow: hidden;
 }
 
@@ -1294,6 +1297,10 @@ body {
 .board_list {
     display: none;
     height: auto;
+    /* 기본 ul 태그의 여백 제거 */
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .board_list.active {
